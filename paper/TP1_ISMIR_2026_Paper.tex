@@ -1,0 +1,188 @@
+\documentclass{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{ismir}
+\usepackage{amsmath,cite,url}
+\usepackage{graphicx}
+\usepackage{color}
+
+\title{Probabilistic Grammar-Based Symbolic Music Generation Inspired by the D\'ecima Espinela and Northeastern Brazilian Repente}
+
+\oneauthor
+  {Yuri Siqueira Dantas}
+  {Universidade Federal de Minas Gerais (UFMG)\\
+   \texttt{yyurisiqueira@gmail.com}}
+
+\def\authorname{Yuri Siqueira Dantas}
+\usepackage[bookmarks=false,pdfauthor={\authorname},pdfsubject={\pdfsubject},hidelinks]{hyperref}
+
+\sloppy
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This work investigates symbolic music composition with probabilistic generative grammars, using a poetic constraint as a formal structure for musical recurrence. Inspired by the \textit{d\'ecima espinela}, the system generates ten phrases following a recurrence pattern abstracted from ABBAACCDDC. Four melodic families are independently produced by a shared probabilistic grammar and then assigned to recurring structural roles, while the hyperparameter \(p_{\mathrm{var}}\) controls local pitch microvariation. The symbolic output is MIDI.
+
+Three realizations were analyzed. M1 and M2 used \(p_{\mathrm{var}}=.20\) with different seeds, while M1 and M3 shared the same seed and used \(p_{\mathrm{var}}=.20\) and .70, respectively, to isolate the hyperparameter effect. In all three realizations, intra-role pitch similarity was greater than inter-role similarity. In the controlled comparison, increasing \(p_{\mathrm{var}}\) from .20 to .70 raised the number of microvariations from 12/50 to 33/50. With different seeds at \(p_{\mathrm{var}}=.20\), 58/80 final pitches differed. The mapping from poetic form to musical recurrence is a computational abstraction, not a reconstruction of traditional cantoria practice.
+\end{abstract}
+
+\section{Introduction}\label{sec:introduction}
+
+Symbolic algorithmic music generation provides a controlled setting for studying how formal constraints can organize musical recurrence while still allowing stochastic variation. In this work, we use the \textit{d\'ecima espinela} as a formal reference: a poetic form of ten octosyllabic lines with rhyme scheme ABBAACCDDC \cite{diazpimienta2021improvisacion}. Northeastern Brazilian cantoria de viola provides the broader musical context and inspiration; however, the poetic form adopted here should not be taken as representative of all d\'ecima forms used in cantoria, which exhibit broader metric diversity \cite{sautchuk2010poetica}.
+
+The computational problem is to convert a poetic recurrence constraint into a probabilistic musical structure that preserves recognizable identity when a structural role returns, while still permitting diversity across melodic families and controlled variation across their realizations. We address this with a probabilistic generative-grammar system that independently generates four melodic families and stochastically assigns them to recurring roles following a recurrence pattern abstracted from ABBAACCDDC. A hyperparameter, \(p_{\mathrm{var}}\), controls local pitch microvariation between occurrences without changing the underlying rhythmic backbone. The system produces symbolic MIDI output and supports reproducible realizations through explicit random seeds.
+
+Our goal is not to reproduce or model traditional cantoria practice. In particular, the mapping from poetic rhyme classes to recurring musical roles is a computational design abstraction introduced by this work, not a reconstruction of a documented traditional correspondence.
+
+\section{Related Work}\label{sec:related_work}
+
+Grammar-based approaches have long been used to generate symbolic musical structure. Keller and Morrison \cite{keller2007grammatical} use a probabilistic grammar for melodic generation, with weighted competing productions and a later musical interpretation of generated terminals. Quick and Hudak \cite{quick2013grammar} extend grammar-based composition with probabilistic temporal graph grammars, combining stochastic choice, temporal structure, and explicit representation of repetition. Eibensteiner, Il\v{c}\'ik, and Wimmer \cite{eibensteiner2021temporal} propose temporal-scope grammars that support modular, multi-part generation, including melodic, harmonic, and drum components. Earlier, McCormack \cite{mccormack1996grammar} explored stochastic and hierarchical L-system-based grammars for music composition. These systems differ formally from ours, but collectively establish probabilistic and structured rewriting as viable mechanisms for symbolic music generation. Our approach uses a probabilistic generative grammar to produce independent melodic families that are subsequently associated with a recurrence structure derived from a poetic constraint.
+
+For the poetic and musicological context, D\'iaz-Pimienta \cite{diazpimienta2021improvisacion} describes the \textit{d\'ecima espinela} as a ten-line octosyllabic form with the rhyme scheme ABBAACCDDC. Sautchuk \cite{sautchuk2010poetica} discusses toadas in northeastern Brazilian cantoria and notes that correspondences between rhyme classes and melodic similarity are not systematic in d\'ecimas. Freire and Pereira \cite{freire2019tratamento}, in a decasyllabic corpus, show that reiteration, derivation, and melodic contrast coexist to different degrees across toadas. Accordingly, our mapping from ABBAACCDDC to recurring musical roles is a computational analogy and design abstraction of this work, not a documented traditional practice.
+
+\section{Method}\label{sec:method}
+
+\subsection{Formal Structure and Probabilistic Grammar}\label{subsec:formal_grammar}
+
+We adopt the poetic form of the \textit{d\'ecima espinela} as the formal constraint of the system: ten octosyllabic lines with rhyme scheme ABBAACCDDC \cite{diazpimienta2021improvisacion}. Its translation into music is explicitly computational: ten poetic lines are represented as ten musical phrases, eight syllables as eight events per phrase, and the rhyme-class pattern as recurring musical roles. These correspondences are design abstractions and are not presented as musicological properties of cantoria.
+
+The recurrence structure is defined separately as
+
+\begin{equation}
+\begin{aligned}
+G_S:\quad S\rightarrow{}&R_1R_2R_2R_1R_1\\
+                       &R_3R_3R_4R_4R_3,
+\end{aligned}
+\end{equation}
+
+where \(S\) is the initial symbol and \(R_i\) are structural recurring roles, not predefined melodic families. Melodic material is generated by a second grammar shared by four independent derivations:
+
+\begin{equation}
+G_F:\quad
+F\rightarrow START\,MOVE^5\,CADENCE.
+\end{equation}
+
+The resulting \(F_1,\ldots,F_4\) are generated independently; no family is derived from another and no common base melody is used. A stochastic bijection subsequently assigns the four generated families to the four structural roles \(R_i\), keeping family identity and structural role distinct.
+
+For \(G_F\), the start symbol is \(F\); the non-terminals are \(F\), \(START\), \(MOVE(d)\), and \(CADENCE\); and the terminals are scale degrees \(1,\ldots,7\). The probabilistic productions are defined by \(START\), \(MOVE(d)\), and \(CADENCE\). \(START\) emits one degree from \(\{2,3,4,5\}\) with probability \(0.25\) each. Given the current degree \(d\),
+
+\begin{equation}
+\begin{aligned}
+MOVE(d)\rightarrow{}&d+1\,[.30]\mid d-1\,[.30]\mid d\,[.15]\\
+                    &\mid d+2\,[.125]\mid d-2\,[.125].
+\end{aligned}
+\end{equation}
+
+Only outcomes within degrees \(1,\ldots,7\) are retained; when a move would leave this range, that alternative is removed and the remaining weights are renormalized. Finally,
+
+\begin{equation}
+\begin{aligned}
+CADENCE\rightarrow{}&(2,1)[.35]\mid(3,1)[.25]\\
+                    &\mid(4,3)[.20]\mid(2,3)[.20],
+\end{aligned}
+\end{equation}
+
+producing two final degrees and therefore eight scale-degree terminals per family.
+
+Rhythm is generated procedurally for each family. Four two-event cells are independently and uniformly selected from \((1,1)\), \((0.5,1.5)\), and \((1.5,0.5)\) beats, yielding eight events and eight beats per phrase. The resulting rhythm backbone is reused whenever that family's assigned structural role recurs.
+
+The terminal-to-event mapping is explicit: each terminal degree \(d_i\), together with the corresponding rhythmic duration \(\Delta_i\), is interpreted as a symbolic MIDI note event with scale degree, duration, and fixed velocity. Degrees are mapped to pitches in C major with C4 (MIDI 60) as the tonic.
+
+\subsection{Musical Realization and Variation}\label{subsec:realization}
+
+Each occurrence of a structural role is realized from the pitch and rhythm backbone of its assigned family. Pitch microvariation is controlled by the hyperparameter \(p_{\mathrm{var}}\). Positions 2--6 of each eight-event phrase are eligible, whereas positions 1, 7, and 8 are protected. At each eligible position, variation is applied with probability \(p_{\mathrm{var}}\); when activated, the current backbone degree is replaced by a valid neighboring degree at \(\pm1\) scale step. The corresponding duration is unchanged, so \(p_{\mathrm{var}}\) affects pitch but not rhythm. The general idea of preserving a melodic framework while allowing variation is consistent with observations on toadas in the decasyllabic corpus analyzed by Freire and Pereira \cite{freire2019tratamento}; \(p_{\mathrm{var}}\), however, is a computational control parameter rather than an empirical model of cantoria practice.
+
+A separate stochastic bijection assigns the four structural roles to viola, rabeca, sanfona, and viol\~ao. These are rendered through General MIDI proxies: Acoustic Guitar (steel), Fiddle, Accordion, and Acoustic Guitar (nylon), respectively. They are arrangement choices inspired by the musical context of the project, not a reconstruction of a fixed traditional ensemble.
+
+Percussion is produced for 20 4/4 bars by a small auxiliary probabilistic grammar,
+
+\begin{equation}
+\begin{aligned}
+\mathrm{PERC\_CELL}\rightarrow{}&\mathrm{BASIC\_A}[.40]\mid
+\mathrm{BASIC\_B}[.30]\\
+&\mid\mathrm{BASIC\_C}[.20]\mid
+\mathrm{FILL}[.10].
+\end{aligned}
+\end{equation}
+
+Its patterns use a bass-drum proxy for the low, zabumba-like layer and muted/open triangle for the high layer. This auxiliary arrangement does not modify the melodic recurrence structure.
+
+Pitch identity between two phrases \(a\) and \(b\) is measured as
+
+\begin{equation}
+\mathrm{SimPitch}(a,b)=
+\frac{1}{8}\sum_{i=1}^{8}
+\mathbf{1}[p_i^{(a)}=p_i^{(b)}].
+\end{equation}
+
+It is the proportion of the eight aligned positions having identical realized MIDI pitch. Intra-role similarity is the mean over phrase pairs belonging to the same structural role, whereas inter-role similarity is the mean over pairs from different roles.
+
+Code, MIDI, and audio examples are available in the \href{https://github.com/YuriDants/tp1-generative-music}{project repository}.
+
+\section{Results}\label{sec:results}
+
+\subsection{Experimental Setup}\label{subsec:experimental_setup}
+
+Three realizations were analyzed: M1 (\(\mathrm{seed}=101\), \(p_{\mathrm{var}}=.20\)), M2 (\(\mathrm{seed}=202\), \(p_{\mathrm{var}}=.20\)), and M3 (\(\mathrm{seed}=101\), \(p_{\mathrm{var}}=.70\)). The M1$\times$M2 comparison examines observed diversity under the same model setting \(p_{\mathrm{var}}=.20\) with different random seeds. M1$\times$M3 isolates the effect of \(p_{\mathrm{var}}\): the seed and all other controlled components are unchanged, while only the microvariation threshold differs.
+
+\subsection{Quantitative Results}\label{subsec:quantitative_results}
+
+\begin{table}[t]
+  \centering
+  \small
+  \setlength{\tabcolsep}{3.2pt}
+  \begin{tabular}{@{}lrrrrr@{}}
+    \hline
+    Song & seed & \(p_{\mathrm{var}}\) & Microvar. & Pitch intra & Pitch inter \\
+    \hline
+    M1 & 101 & .20 & 12/50 (.24) & .750 & .264 \\
+    M2 & 202 & .20 & 13/50 (.26) & .813 & .236 \\
+    M3 & 101 & .70 & 33/50 (.66) & .688 & .226 \\
+    \hline
+  \end{tabular}
+  \caption{Microvariation and pitch-similarity results.}
+  \label{tab:main_results}
+\end{table}
+
+For all three realizations,
+
+\begin{equation}
+\mathrm{SimPitch}_{\mathrm{intra}}>
+\mathrm{SimPitch}_{\mathrm{inter}},
+\end{equation}
+
+showing that recurrent occurrences of the same structural role retained more aligned pitch identity than phrases assigned to different roles. These similarity values characterize structural relationships only and are not measures of musical quality.
+
+\begin{table}[t]
+  \centering
+  \footnotesize
+  \setlength{\tabcolsep}{2.5pt}
+  \begin{tabular}{@{}p{0.15\columnwidth}p{0.34\columnwidth}p{0.43\columnwidth}@{}}
+    \hline
+    Comparison & Controlled condition & Observed differences \\
+    \hline
+    M1$\times$M2 & same \(p_{\mathrm{var}}=.20\), different seeds & 58/80 final pitches differ; 76/80 durations differ \\
+    M1$\times$M3 & same seed and all pre-variation components & 12$\rightarrow$33 microvariations; +21 additional variations; 21/80 final pitches differ \\
+    \hline
+  \end{tabular}
+  \caption{Main pairwise experimental contrasts.}
+  \label{tab:pairwise_results}
+\end{table}
+
+M1$\times$M2 demonstrates diversity for the two tested seeds at \(p_{\mathrm{var}}=.20\), without implying the same degree of diversity for arbitrary seed pairs.
+
+The M1$\times$M3 comparison directly isolates the hyperparameter effect. Families, rhythms, family-to-role assignment, instrument assignment, percussion, and the microvariation random flow were held constant. All 12 microvariations occurring in M1 also occur identically in M3; increasing \(p_{\mathrm{var}}\) from .20 to .70 admits exactly 21 additional variations, raising the total from 12/50 to 33/50 and producing differences in exactly 21 of the 80 final melodic pitches.
+
+\section{Discussion and Future Work}\label{sec:discussion}
+
+Across the three analyzed realizations, \(\mathrm{SimPitch}_{\mathrm{intra}}>\mathrm{SimPitch}_{\mathrm{inter}}\), indicating that these outputs preserve greater pitch identity between returns of the same structural role than between different roles. The controlled M1$\times$M3 comparison further shows that increasing \(p_{\mathrm{var}}\) increases pitch microvariation while the pre-variation components remain fixed. M1$\times$M2 also provides observed evidence that different seeds can produce distinct realizations at multiple generative levels, although two seeds are insufficient to characterize a general diversity distribution.
+
+These findings should be interpreted within the limited experimental scope. Only three realizations were evaluated, without perceptual assessment, and the similarity metric measures structural pitch identity rather than musical quality. General MIDI timbres are instrumental proxies, the equal-tempered representation does not capture microtonal nuances discussed in the cantoria literature \cite{freire2019tratamento}, and the mappings 10 lines \(\rightarrow\) 10 phrases, 8 syllables \(\rightarrow\) 8 events, and ABBAACCDDC \(\rightarrow\) recurring musical roles are computational abstractions.
+
+Future work should evaluate more seeds and realizations, include listener studies, investigate timbral and symbolic representations closer to viola and cantoria, and explore tuning and microtonality. Corpus-based studies could also examine relationships between poetic and musical structure empirically rather than assuming the analogy adopted here.
+
+\bibliography{TP1_ISMIR2026}
+
+\end{document}

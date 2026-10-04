@@ -1,0 +1,9 @@
+{
+  "same_seed": true,
+  "same_toada_base": true,
+  "same_family_backbones": true,
+  "same_rhythm_backbones": true,
+  "m1_microvariations_are_subset_of_m3": true,
+  "realized_outputs_are_different": true,
+  "all_valid": true
+}

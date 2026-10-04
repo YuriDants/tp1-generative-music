@@ -1,0 +1,12 @@
+{
+  "same_seed": true,
+  "same_F1_F2_F3_F4": true,
+  "same_family_cadences": true,
+  "same_family_rhythms": true,
+  "same_role_mapping_F_to_R": true,
+  "same_instrument_mapping_R_to_instrument": true,
+  "same_micro_random_flow": true,
+  "m1_microvariations_are_subset_of_m3": true,
+  "realized_outputs_are_different": true,
+  "all_valid": true
+}

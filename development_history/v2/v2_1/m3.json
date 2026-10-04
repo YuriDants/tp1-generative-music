@@ -1,0 +1,1345 @@
+{
+  "version": "V2",
+  "config": {
+    "name": "m3",
+    "seed": 101,
+    "p_var": 0.7,
+    "bpm": 96,
+    "time_signature": "4/4",
+    "tonic_midi": 60,
+    "velocity": 80,
+    "form": "ABBAACCDDC",
+    "output_version": "outputs_v2"
+  },
+  "formal_grammar": {
+    "axiom": "S",
+    "structural_rule": "S -> A B B A A C C D D C",
+    "class_realizations": "X -> Xij, i,j in {0,1,2,3}",
+    "melodic_probabilities": {
+      "0": "1-p_var",
+      "1": "p_var/3",
+      "2": "p_var/3",
+      "3": "p_var/3"
+    },
+    "rhythmic_probabilities": {
+      "0": "1-p_var",
+      "1": "p_var/3",
+      "2": "p_var/3",
+      "3": "p_var/3"
+    },
+    "terminal": "NOTE(degree, duration, velocity)"
+  },
+  "instrument_programs": {
+    "A": 24,
+    "B": 21,
+    "C": 73,
+    "D": 40
+  },
+  "validation": {
+    "exactly_10_phrases": true,
+    "form_is_ABBAACCDDC": true,
+    "exactly_8_events_per_phrase": true,
+    "exactly_80_total_events": true,
+    "each_phrase_is_8_beats": true,
+    "degrees_are_valid": true,
+    "midi_pitches_are_valid": true,
+    "durations_are_positive": true,
+    "only_NOTE_terminals_remain": true,
+    "melodic_variant_indices_valid": true,
+    "rhythmic_variant_indices_valid": true,
+    "realization_names_valid": true,
+    "instrument_names_valid": true,
+    "instrument_programs_resolved": true,
+    "melody_matches_selected_variant": true,
+    "rhythm_matches_selected_variant": true,
+    "same_seed_and_config_are_reproducible": true,
+    "all_valid": true
+  },
+  "metrics": {
+    "melodic_variant_phrases": 9,
+    "melodic_variant_rate": 0.9,
+    "rhythmic_variant_phrases": 9,
+    "rhythmic_variant_rate": 0.9,
+    "phrases_with_any_variant": 10,
+    "any_variant_rate": 1.0,
+    "mean_intra_class_pitch_similarity": 0.625,
+    "mean_inter_class_pitch_similarity": 0.14527027027027026,
+    "mean_intra_class_rhythm_similarity": 0.53125,
+    "mean_inter_class_rhythm_similarity": 0.6081081081081081,
+    "mean_intra_class_combined_similarity": 0.34375,
+    "mean_inter_class_combined_similarity": 0.08783783783783784,
+    "intra_class_pair_count": 8,
+    "inter_class_pair_count": 37,
+    "intra_class_pairs": [
+      {
+        "phrase_i": 1,
+        "phrase_j": 4,
+        "class_i": "A",
+        "class_j": "A",
+        "realization_i": "A10",
+        "realization_j": "A13",
+        "pitch_similarity": 1.0,
+        "rhythm_similarity": 0.25,
+        "combined_similarity": 0.25
+      },
+      {
+        "phrase_i": 1,
+        "phrase_j": 5,
+        "class_i": "A",
+        "class_j": "A",
+        "realization_i": "A10",
+        "realization_j": "A22",
+        "pitch_similarity": 0.625,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.5
+      },
+      {
+        "phrase_i": 2,
+        "phrase_j": 3,
+        "class_i": "B",
+        "class_j": "B",
+        "realization_i": "B21",
+        "realization_j": "B33",
+        "pitch_similarity": 0.5,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.25
+      },
+      {
+        "phrase_i": 4,
+        "phrase_j": 5,
+        "class_i": "A",
+        "class_j": "A",
+        "realization_i": "A13",
+        "realization_j": "A22",
+        "pitch_similarity": 0.625,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.25
+      },
+      {
+        "phrase_i": 6,
+        "phrase_j": 7,
+        "class_i": "C",
+        "class_j": "C",
+        "realization_i": "C11",
+        "realization_j": "C32",
+        "pitch_similarity": 0.5,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.25
+      },
+      {
+        "phrase_i": 6,
+        "phrase_j": 10,
+        "class_i": "C",
+        "class_j": "C",
+        "realization_i": "C11",
+        "realization_j": "C23",
+        "pitch_similarity": 0.5,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.375
+      },
+      {
+        "phrase_i": 7,
+        "phrase_j": 10,
+        "class_i": "C",
+        "class_j": "C",
+        "realization_i": "C32",
+        "realization_j": "C23",
+        "pitch_similarity": 0.5,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.125
+      },
+      {
+        "phrase_i": 8,
+        "phrase_j": 9,
+        "class_i": "D",
+        "class_j": "D",
+        "realization_i": "D02",
+        "realization_j": "D32",
+        "pitch_similarity": 0.75,
+        "rhythm_similarity": 1.0,
+        "combined_similarity": 0.75
+      }
+    ],
+    "inter_class_pairs": [
+      {
+        "phrase_i": 1,
+        "phrase_j": 2,
+        "class_i": "A",
+        "class_j": "B",
+        "realization_i": "A10",
+        "realization_j": "B21",
+        "pitch_similarity": 0.0,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.0
+      },
+      {
+        "phrase_i": 1,
+        "phrase_j": 3,
+        "class_i": "A",
+        "class_j": "B",
+        "realization_i": "A10",
+        "realization_j": "B33",
+        "pitch_similarity": 0.125,
+        "rhythm_similarity": 0.25,
+        "combined_similarity": 0.125
+      },
+      {
+        "phrase_i": 1,
+        "phrase_j": 6,
+        "class_i": "A",
+        "class_j": "C",
+        "realization_i": "A10",
+        "realization_j": "C11",
+        "pitch_similarity": 0.0,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.0
+      },
+      {
+        "phrase_i": 1,
+        "phrase_j": 7,
+        "class_i": "A",
+        "class_j": "C",
+        "realization_i": "A10",
+        "realization_j": "C32",
+        "pitch_similarity": 0.0,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.0
+      },
+      {
+        "phrase_i": 1,
+        "phrase_j": 8,
+        "class_i": "A",
+        "class_j": "D",
+        "realization_i": "A10",
+        "realization_j": "D02",
+        "pitch_similarity": 0.375,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.125
+      },
+      {
+        "phrase_i": 1,
+        "phrase_j": 9,
+        "class_i": "A",
+        "class_j": "D",
+        "realization_i": "A10",
+        "realization_j": "D32",
+        "pitch_similarity": 0.125,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.0
+      },
+      {
+        "phrase_i": 1,
+        "phrase_j": 10,
+        "class_i": "A",
+        "class_j": "C",
+        "realization_i": "A10",
+        "realization_j": "C23",
+        "pitch_similarity": 0.125,
+        "rhythm_similarity": 0.25,
+        "combined_similarity": 0.0
+      },
+      {
+        "phrase_i": 2,
+        "phrase_j": 4,
+        "class_i": "B",
+        "class_j": "A",
+        "realization_i": "B21",
+        "realization_j": "A13",
+        "pitch_similarity": 0.0,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.0
+      },
+      {
+        "phrase_i": 2,
+        "phrase_j": 5,
+        "class_i": "B",
+        "class_j": "A",
+        "realization_i": "B21",
+        "realization_j": "A22",
+        "pitch_similarity": 0.0,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.0
+      },
+      {
+        "phrase_i": 2,
+        "phrase_j": 6,
+        "class_i": "B",
+        "class_j": "C",
+        "realization_i": "B21",
+        "realization_j": "C11",
+        "pitch_similarity": 0.25,
+        "rhythm_similarity": 1.0,
+        "combined_similarity": 0.25
+      },
+      {
+        "phrase_i": 2,
+        "phrase_j": 7,
+        "class_i": "B",
+        "class_j": "C",
+        "realization_i": "B21",
+        "realization_j": "C32",
+        "pitch_similarity": 0.25,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.125
+      },
+      {
+        "phrase_i": 2,
+        "phrase_j": 8,
+        "class_i": "B",
+        "class_j": "D",
+        "realization_i": "B21",
+        "realization_j": "D02",
+        "pitch_similarity": 0.25,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.25
+      },
+      {
+        "phrase_i": 2,
+        "phrase_j": 9,
+        "class_i": "B",
+        "class_j": "D",
+        "realization_i": "B21",
+        "realization_j": "D32",
+        "pitch_similarity": 0.25,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.25
+      },
+      {
+        "phrase_i": 2,
+        "phrase_j": 10,
+        "class_i": "B",
+        "class_j": "C",
+        "realization_i": "B21",
+        "realization_j": "C23",
+        "pitch_similarity": 0.375,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.125
+      },
+      {
+        "phrase_i": 3,
+        "phrase_j": 4,
+        "class_i": "B",
+        "class_j": "A",
+        "realization_i": "B33",
+        "realization_j": "A13",
+        "pitch_similarity": 0.125,
+        "rhythm_similarity": 1.0,
+        "combined_similarity": 0.125
+      },
+      {
+        "phrase_i": 3,
+        "phrase_j": 5,
+        "class_i": "B",
+        "class_j": "A",
+        "realization_i": "B33",
+        "realization_j": "A22",
+        "pitch_similarity": 0.25,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.25
+      },
+      {
+        "phrase_i": 3,
+        "phrase_j": 6,
+        "class_i": "B",
+        "class_j": "C",
+        "realization_i": "B33",
+        "realization_j": "C11",
+        "pitch_similarity": 0.125,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.0
+      },
+      {
+        "phrase_i": 3,
+        "phrase_j": 7,
+        "class_i": "B",
+        "class_j": "C",
+        "realization_i": "B33",
+        "realization_j": "C32",
+        "pitch_similarity": 0.125,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.0
+      },
+      {
+        "phrase_i": 3,
+        "phrase_j": 8,
+        "class_i": "B",
+        "class_j": "D",
+        "realization_i": "B33",
+        "realization_j": "D02",
+        "pitch_similarity": 0.375,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.125
+      },
+      {
+        "phrase_i": 3,
+        "phrase_j": 9,
+        "class_i": "B",
+        "class_j": "D",
+        "realization_i": "B33",
+        "realization_j": "D32",
+        "pitch_similarity": 0.25,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.0
+      },
+      {
+        "phrase_i": 3,
+        "phrase_j": 10,
+        "class_i": "B",
+        "class_j": "C",
+        "realization_i": "B33",
+        "realization_j": "C23",
+        "pitch_similarity": 0.125,
+        "rhythm_similarity": 1.0,
+        "combined_similarity": 0.125
+      },
+      {
+        "phrase_i": 4,
+        "phrase_j": 6,
+        "class_i": "A",
+        "class_j": "C",
+        "realization_i": "A13",
+        "realization_j": "C11",
+        "pitch_similarity": 0.0,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.0
+      },
+      {
+        "phrase_i": 4,
+        "phrase_j": 7,
+        "class_i": "A",
+        "class_j": "C",
+        "realization_i": "A13",
+        "realization_j": "C32",
+        "pitch_similarity": 0.0,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.0
+      },
+      {
+        "phrase_i": 4,
+        "phrase_j": 8,
+        "class_i": "A",
+        "class_j": "D",
+        "realization_i": "A13",
+        "realization_j": "D02",
+        "pitch_similarity": 0.375,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.375
+      },
+      {
+        "phrase_i": 4,
+        "phrase_j": 9,
+        "class_i": "A",
+        "class_j": "D",
+        "realization_i": "A13",
+        "realization_j": "D32",
+        "pitch_similarity": 0.125,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.125
+      },
+      {
+        "phrase_i": 4,
+        "phrase_j": 10,
+        "class_i": "A",
+        "class_j": "C",
+        "realization_i": "A13",
+        "realization_j": "C23",
+        "pitch_similarity": 0.125,
+        "rhythm_similarity": 1.0,
+        "combined_similarity": 0.125
+      },
+      {
+        "phrase_i": 5,
+        "phrase_j": 6,
+        "class_i": "A",
+        "class_j": "C",
+        "realization_i": "A22",
+        "realization_j": "C11",
+        "pitch_similarity": 0.0,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.0
+      },
+      {
+        "phrase_i": 5,
+        "phrase_j": 7,
+        "class_i": "A",
+        "class_j": "C",
+        "realization_i": "A22",
+        "realization_j": "C32",
+        "pitch_similarity": 0.125,
+        "rhythm_similarity": 1.0,
+        "combined_similarity": 0.125
+      },
+      {
+        "phrase_i": 5,
+        "phrase_j": 8,
+        "class_i": "A",
+        "class_j": "D",
+        "realization_i": "A22",
+        "realization_j": "D02",
+        "pitch_similarity": 0.125,
+        "rhythm_similarity": 1.0,
+        "combined_similarity": 0.125
+      },
+      {
+        "phrase_i": 5,
+        "phrase_j": 9,
+        "class_i": "A",
+        "class_j": "D",
+        "realization_i": "A22",
+        "realization_j": "D32",
+        "pitch_similarity": 0.0,
+        "rhythm_similarity": 1.0,
+        "combined_similarity": 0.0
+      },
+      {
+        "phrase_i": 5,
+        "phrase_j": 10,
+        "class_i": "A",
+        "class_j": "C",
+        "realization_i": "A22",
+        "realization_j": "C23",
+        "pitch_similarity": 0.0,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.0
+      },
+      {
+        "phrase_i": 6,
+        "phrase_j": 8,
+        "class_i": "C",
+        "class_j": "D",
+        "realization_i": "C11",
+        "realization_j": "D02",
+        "pitch_similarity": 0.0,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.0
+      },
+      {
+        "phrase_i": 6,
+        "phrase_j": 9,
+        "class_i": "C",
+        "class_j": "D",
+        "realization_i": "C11",
+        "realization_j": "D32",
+        "pitch_similarity": 0.0,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.0
+      },
+      {
+        "phrase_i": 7,
+        "phrase_j": 8,
+        "class_i": "C",
+        "class_j": "D",
+        "realization_i": "C32",
+        "realization_j": "D02",
+        "pitch_similarity": 0.125,
+        "rhythm_similarity": 1.0,
+        "combined_similarity": 0.125
+      },
+      {
+        "phrase_i": 7,
+        "phrase_j": 9,
+        "class_i": "C",
+        "class_j": "D",
+        "realization_i": "C32",
+        "realization_j": "D32",
+        "pitch_similarity": 0.125,
+        "rhythm_similarity": 1.0,
+        "combined_similarity": 0.125
+      },
+      {
+        "phrase_i": 8,
+        "phrase_j": 10,
+        "class_i": "D",
+        "class_j": "C",
+        "realization_i": "D02",
+        "realization_j": "C23",
+        "pitch_similarity": 0.375,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.125
+      },
+      {
+        "phrase_i": 9,
+        "phrase_j": 10,
+        "class_i": "D",
+        "class_j": "C",
+        "realization_i": "D32",
+        "realization_j": "C23",
+        "pitch_similarity": 0.375,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.125
+      }
+    ]
+  },
+  "phrases": [
+    {
+      "phrase_index": 1,
+      "class": "A",
+      "realization": "A10",
+      "melodic_variant": 1,
+      "rhythmic_variant": 0,
+      "instrument": "Acoustic Guitar (nylon)",
+      "instrument_program": 24,
+      "seed": 101,
+      "p_var": 0.7,
+      "events": [
+        {
+          "position": 1,
+          "degree": 1,
+          "midi_pitch": 60,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 2,
+          "degree": 3,
+          "midi_pitch": 64,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 3,
+          "degree": 4,
+          "midi_pitch": 65,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 4,
+          "degree": 3,
+          "midi_pitch": 64,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 5,
+          "degree": 2,
+          "midi_pitch": 62,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 6,
+          "degree": 3,
+          "midi_pitch": 64,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 7,
+          "degree": 2,
+          "midi_pitch": 62,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 8,
+          "degree": 1,
+          "midi_pitch": 60,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        }
+      ]
+    },
+    {
+      "phrase_index": 2,
+      "class": "B",
+      "realization": "B21",
+      "melodic_variant": 2,
+      "rhythmic_variant": 1,
+      "instrument": "Accordion",
+      "instrument_program": 21,
+      "seed": 101,
+      "p_var": 0.7,
+      "events": [
+        {
+          "position": 1,
+          "degree": 3,
+          "midi_pitch": 64,
+          "duration": 0.5,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 2,
+          "degree": 4,
+          "midi_pitch": 65,
+          "duration": 1.5,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 3,
+          "degree": 6,
+          "midi_pitch": 69,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 4,
+          "degree": 5,
+          "midi_pitch": 67,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 5,
+          "degree": 3,
+          "midi_pitch": 64,
+          "duration": 0.5,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 6,
+          "degree": 4,
+          "midi_pitch": 65,
+          "duration": 1.5,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 7,
+          "degree": 4,
+          "midi_pitch": 65,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 8,
+          "degree": 5,
+          "midi_pitch": 67,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        }
+      ]
+    },
+    {
+      "phrase_index": 3,
+      "class": "B",
+      "realization": "B33",
+      "melodic_variant": 3,
+      "rhythmic_variant": 3,
+      "instrument": "Accordion",
+      "instrument_program": 21,
+      "seed": 101,
+      "p_var": 0.7,
+      "events": [
+        {
+          "position": 1,
+          "degree": 3,
+          "midi_pitch": 64,
+          "duration": 0.5,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 2,
+          "degree": 2,
+          "midi_pitch": 62,
+          "duration": 0.5,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 3,
+          "degree": 4,
+          "midi_pitch": 65,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 4,
+          "degree": 5,
+          "midi_pitch": 67,
+          "duration": 2.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 5,
+          "degree": 6,
+          "midi_pitch": 69,
+          "duration": 0.5,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 6,
+          "degree": 5,
+          "midi_pitch": 67,
+          "duration": 0.5,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 7,
+          "degree": 4,
+          "midi_pitch": 65,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 8,
+          "degree": 5,
+          "midi_pitch": 67,
+          "duration": 2.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        }
+      ]
+    },
+    {
+      "phrase_index": 4,
+      "class": "A",
+      "realization": "A13",
+      "melodic_variant": 1,
+      "rhythmic_variant": 3,
+      "instrument": "Acoustic Guitar (nylon)",
+      "instrument_program": 24,
+      "seed": 101,
+      "p_var": 0.7,
+      "events": [
+        {
+          "position": 1,
+          "degree": 1,
+          "midi_pitch": 60,
+          "duration": 0.5,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 2,
+          "degree": 3,
+          "midi_pitch": 64,
+          "duration": 0.5,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 3,
+          "degree": 4,
+          "midi_pitch": 65,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 4,
+          "degree": 3,
+          "midi_pitch": 64,
+          "duration": 2.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 5,
+          "degree": 2,
+          "midi_pitch": 62,
+          "duration": 0.5,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 6,
+          "degree": 3,
+          "midi_pitch": 64,
+          "duration": 0.5,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 7,
+          "degree": 2,
+          "midi_pitch": 62,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 8,
+          "degree": 1,
+          "midi_pitch": 60,
+          "duration": 2.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        }
+      ]
+    },
+    {
+      "phrase_index": 5,
+      "class": "A",
+      "realization": "A22",
+      "melodic_variant": 2,
+      "rhythmic_variant": 2,
+      "instrument": "Acoustic Guitar (nylon)",
+      "instrument_program": 24,
+      "seed": 101,
+      "p_var": 0.7,
+      "events": [
+        {
+          "position": 1,
+          "degree": 1,
+          "midi_pitch": 60,
+          "duration": 1.5,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 2,
+          "degree": 2,
+          "midi_pitch": 62,
+          "duration": 0.5,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 3,
+          "degree": 4,
+          "midi_pitch": 65,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 4,
+          "degree": 3,
+          "midi_pitch": 64,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 5,
+          "degree": 1,
+          "midi_pitch": 60,
+          "duration": 1.5,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 6,
+          "degree": 2,
+          "midi_pitch": 62,
+          "duration": 0.5,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 7,
+          "degree": 2,
+          "midi_pitch": 62,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 8,
+          "degree": 1,
+          "midi_pitch": 60,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        }
+      ]
+    },
+    {
+      "phrase_index": 6,
+      "class": "C",
+      "realization": "C11",
+      "melodic_variant": 1,
+      "rhythmic_variant": 1,
+      "instrument": "Flute",
+      "instrument_program": 73,
+      "seed": 101,
+      "p_var": 0.7,
+      "events": [
+        {
+          "position": 1,
+          "degree": 5,
+          "midi_pitch": 67,
+          "duration": 0.5,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 2,
+          "degree": 7,
+          "midi_pitch": 71,
+          "duration": 1.5,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 3,
+          "degree": 6,
+          "midi_pitch": 69,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 4,
+          "degree": 4,
+          "midi_pitch": 65,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 5,
+          "degree": 3,
+          "midi_pitch": 64,
+          "duration": 0.5,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 6,
+          "degree": 5,
+          "midi_pitch": 67,
+          "duration": 1.5,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 7,
+          "degree": 3,
+          "midi_pitch": 64,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 8,
+          "degree": 2,
+          "midi_pitch": 62,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        }
+      ]
+    },
+    {
+      "phrase_index": 7,
+      "class": "C",
+      "realization": "C32",
+      "melodic_variant": 3,
+      "rhythmic_variant": 2,
+      "instrument": "Flute",
+      "instrument_program": 73,
+      "seed": 101,
+      "p_var": 0.7,
+      "events": [
+        {
+          "position": 1,
+          "degree": 5,
+          "midi_pitch": 67,
+          "duration": 1.5,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 2,
+          "degree": 6,
+          "midi_pitch": 69,
+          "duration": 0.5,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 3,
+          "degree": 7,
+          "midi_pitch": 71,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 4,
+          "degree": 5,
+          "midi_pitch": 67,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 5,
+          "degree": 3,
+          "midi_pitch": 64,
+          "duration": 1.5,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 6,
+          "degree": 2,
+          "midi_pitch": 62,
+          "duration": 0.5,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 7,
+          "degree": 3,
+          "midi_pitch": 64,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 8,
+          "degree": 2,
+          "midi_pitch": 62,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        }
+      ]
+    },
+    {
+      "phrase_index": 8,
+      "class": "D",
+      "realization": "D02",
+      "melodic_variant": 0,
+      "rhythmic_variant": 2,
+      "instrument": "Violin",
+      "instrument_program": 40,
+      "seed": 101,
+      "p_var": 0.7,
+      "events": [
+        {
+          "position": 1,
+          "degree": 2,
+          "midi_pitch": 62,
+          "duration": 1.5,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 2,
+          "degree": 3,
+          "midi_pitch": 64,
+          "duration": 0.5,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 3,
+          "degree": 4,
+          "midi_pitch": 65,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 4,
+          "degree": 5,
+          "midi_pitch": 67,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 5,
+          "degree": 4,
+          "midi_pitch": 65,
+          "duration": 1.5,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 6,
+          "degree": 3,
+          "midi_pitch": 64,
+          "duration": 0.5,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 7,
+          "degree": 6,
+          "midi_pitch": 69,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 8,
+          "degree": 5,
+          "midi_pitch": 67,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        }
+      ]
+    },
+    {
+      "phrase_index": 9,
+      "class": "D",
+      "realization": "D32",
+      "melodic_variant": 3,
+      "rhythmic_variant": 2,
+      "instrument": "Violin",
+      "instrument_program": 40,
+      "seed": 101,
+      "p_var": 0.7,
+      "events": [
+        {
+          "position": 1,
+          "degree": 2,
+          "midi_pitch": 62,
+          "duration": 1.5,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 2,
+          "degree": 1,
+          "midi_pitch": 60,
+          "duration": 0.5,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 3,
+          "degree": 3,
+          "midi_pitch": 64,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 4,
+          "degree": 5,
+          "midi_pitch": 67,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 5,
+          "degree": 4,
+          "midi_pitch": 65,
+          "duration": 1.5,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 6,
+          "degree": 3,
+          "midi_pitch": 64,
+          "duration": 0.5,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 7,
+          "degree": 6,
+          "midi_pitch": 69,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 8,
+          "degree": 5,
+          "midi_pitch": 67,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        }
+      ]
+    },
+    {
+      "phrase_index": 10,
+      "class": "C",
+      "realization": "C23",
+      "melodic_variant": 2,
+      "rhythmic_variant": 3,
+      "instrument": "Flute",
+      "instrument_program": 73,
+      "seed": 101,
+      "p_var": 0.7,
+      "events": [
+        {
+          "position": 1,
+          "degree": 5,
+          "midi_pitch": 67,
+          "duration": 0.5,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 2,
+          "degree": 4,
+          "midi_pitch": 65,
+          "duration": 0.5,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 3,
+          "degree": 6,
+          "midi_pitch": 69,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 4,
+          "degree": 5,
+          "midi_pitch": 67,
+          "duration": 2.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 5,
+          "degree": 4,
+          "midi_pitch": 65,
+          "duration": 0.5,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 6,
+          "degree": 3,
+          "midi_pitch": 64,
+          "duration": 0.5,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 7,
+          "degree": 3,
+          "midi_pitch": 64,
+          "duration": 1.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        },
+        {
+          "position": 8,
+          "degree": 2,
+          "midi_pitch": 62,
+          "duration": 2.0,
+          "velocity": 80,
+          "terminal": "NOTE"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+{
+  "m1_and_m3_have_same_seed": true,
+  "m1_and_m3_have_different_p_var": true,
+  "m1_and_m3_use_same_macro_rng_seed": true,
+  "m1_and_m3_use_same_micro_rng_seed": true,
+  "m1_and_m3_have_identical_macro_realizations": true,
+  "m1_and_m3_realized_outputs_are_different": true,
+  "m1_and_m2_are_different": true,
+  "all_valid": true
+}

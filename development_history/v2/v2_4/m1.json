@@ -1,0 +1,4266 @@
+{
+  "version": "V2.3",
+  "config": {
+    "name": "m1",
+    "seed": 101,
+    "p_var": 0.2,
+    "bpm": 96,
+    "time_signature": "4/4",
+    "tonic_midi": 60,
+    "velocity": 80,
+    "internal_structure": "R1 R2 R2 R1 R1 R3 R3 R4 R4 R3",
+    "display_correspondence": "ABBAACCDDC",
+    "rng_stream_seeds": {
+      "toada": 101000314,
+      "family": 101000326,
+      "rhythm": 101000340,
+      "instrument": 101000356,
+      "micro": 101000374
+    }
+  },
+  "formal_grammar": {
+    "axiom_rule": "S -> R1 R2 R2 R1 R1 R3 R3 R4 R4 R3",
+    "display_correspondence": "ABBAACCDDC",
+    "move_rules": [
+      {
+        "production": "STEP_UP",
+        "delta": 1,
+        "probability": 0.3
+      },
+      {
+        "production": "STEP_DOWN",
+        "delta": -1,
+        "probability": 0.3
+      },
+      {
+        "production": "REPEAT",
+        "delta": 0,
+        "probability": 0.15
+      },
+      {
+        "production": "LEAP_UP",
+        "delta": 2,
+        "probability": 0.125
+      },
+      {
+        "production": "LEAP_DOWN",
+        "delta": -2,
+        "probability": 0.125
+      }
+    ],
+    "cadence_rules": [
+      {
+        "production": "CAD_2_1",
+        "degrees": [
+          2,
+          1
+        ],
+        "probability": 0.35
+      },
+      {
+        "production": "CAD_3_1",
+        "degrees": [
+          3,
+          1
+        ],
+        "probability": 0.25
+      },
+      {
+        "production": "CAD_4_3",
+        "degrees": [
+          4,
+          3
+        ],
+        "probability": 0.2
+      },
+      {
+        "production": "CAD_2_3",
+        "degrees": [
+          2,
+          3
+        ],
+        "probability": 0.2
+      }
+    ],
+    "family_transformations": {
+      "productions": [
+        "PRESERVE",
+        "ALTER_DEGREE",
+        "INVERT_LOCAL_GESTURE",
+        "ALTER_CADENCE"
+      ],
+      "probability_each": 0.25,
+      "derivations_per_family": 3,
+      "cumulative": true,
+      "register_shift_present": false
+    },
+    "rhythm_cell_rules": {
+      "productions": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.5,
+          1.5
+        ],
+        [
+          1.5,
+          0.5
+        ]
+      ],
+      "probability_each": 0.3333333333333333
+    },
+    "microvariation_rule": "positions 2..6: PRESERVE [1-p_var] | ALTER_DEGREE(±1 valid) [p_var]",
+    "protected_positions_during_occurrence_microvariation": [
+      1,
+      7,
+      8
+    ],
+    "octave_offset_rule": "octave_offset = 0 for every event in V2.3"
+  },
+  "instrument_assignment": {
+    "R1": {
+      "role": "R1",
+      "cultural_label": "Violão",
+      "track_label": "Violão",
+      "midi_instrument": "Acoustic Guitar (nylon)",
+      "midi_program": 24,
+      "track_name": "R1 - Violão",
+      "proxy_note": "Violão é rótulo cultural do projeto; o timbre MIDI/MuseScore utilizado como proxy é Acoustic Guitar (nylon)."
+    },
+    "R2": {
+      "role": "R2",
+      "cultural_label": "Sanfona",
+      "track_label": "Sanfona",
+      "midi_instrument": "Accordion",
+      "midi_program": 21,
+      "track_name": "R2 - Sanfona",
+      "proxy_note": "Sanfona é rótulo cultural do projeto; o timbre MIDI/MuseScore utilizado como proxy é Accordion."
+    },
+    "R3": {
+      "role": "R3",
+      "cultural_label": "Rabeca",
+      "track_label": "Rabeca",
+      "midi_instrument": "Fiddle",
+      "midi_program": 110,
+      "track_name": "R3 - Rabeca",
+      "proxy_note": "Rabeca é rótulo cultural do projeto; o timbre MIDI/MuseScore utilizado como proxy é Fiddle."
+    },
+    "R4": {
+      "role": "R4",
+      "cultural_label": "Viola nordestina / viola sertaneja",
+      "track_label": "Viola",
+      "midi_instrument": "Acoustic Guitar (steel)",
+      "midi_program": 25,
+      "track_name": "R4 - Viola",
+      "proxy_note": "Viola nordestina / viola sertaneja é rótulo cultural do projeto; o timbre MIDI/MuseScore utilizado como proxy é Acoustic Guitar (steel)."
+    }
+  },
+  "instrumentation_note": "A viola é a referência cultural central à cantoria neste projeto. Rabeca, sanfona e violão são escolhas de orquestração de inspiração nordestina; os timbres General MIDI/MuseScore são proxies explícitos, não uma afirmação de instrumentação tradicional fixa do repente.",
+  "toada_base": {
+    "pitches": [
+      {
+        "degree": 3,
+        "octave_offset": 0,
+        "midi_pitch": 64
+      },
+      {
+        "degree": 1,
+        "octave_offset": 0,
+        "midi_pitch": 60
+      },
+      {
+        "degree": 2,
+        "octave_offset": 0,
+        "midi_pitch": 62
+      },
+      {
+        "degree": 3,
+        "octave_offset": 0,
+        "midi_pitch": 64
+      },
+      {
+        "degree": 4,
+        "octave_offset": 0,
+        "midi_pitch": 65
+      },
+      {
+        "degree": 3,
+        "octave_offset": 0,
+        "midi_pitch": 64
+      },
+      {
+        "degree": 3,
+        "octave_offset": 0,
+        "midi_pitch": 64
+      },
+      {
+        "degree": 1,
+        "octave_offset": 0,
+        "midi_pitch": 60
+      }
+    ],
+    "generation_trace": {
+      "initial_degree": 3,
+      "initial_degree_probabilities": {
+        "2": 0.25,
+        "3": 0.25,
+        "4": 0.25,
+        "5": 0.25
+      },
+      "internal_moves": [
+        {
+          "position": 2,
+          "production": "LEAP_DOWN",
+          "delta": -2,
+          "degree_before": 3,
+          "degree_after": 1,
+          "effective_probabilities": [
+            {
+              "production": "STEP_UP",
+              "delta": 1,
+              "original_weight": 0.3,
+              "effective_probability": 0.3
+            },
+            {
+              "production": "STEP_DOWN",
+              "delta": -1,
+              "original_weight": 0.3,
+              "effective_probability": 0.3
+            },
+            {
+              "production": "REPEAT",
+              "delta": 0,
+              "original_weight": 0.15,
+              "effective_probability": 0.15
+            },
+            {
+              "production": "LEAP_UP",
+              "delta": 2,
+              "original_weight": 0.125,
+              "effective_probability": 0.125
+            },
+            {
+              "production": "LEAP_DOWN",
+              "delta": -2,
+              "original_weight": 0.125,
+              "effective_probability": 0.125
+            }
+          ]
+        },
+        {
+          "position": 3,
+          "production": "STEP_UP",
+          "delta": 1,
+          "degree_before": 1,
+          "degree_after": 2,
+          "effective_probabilities": [
+            {
+              "production": "STEP_UP",
+              "delta": 1,
+              "original_weight": 0.3,
+              "effective_probability": 0.5217391304347826
+            },
+            {
+              "production": "REPEAT",
+              "delta": 0,
+              "original_weight": 0.15,
+              "effective_probability": 0.2608695652173913
+            },
+            {
+              "production": "LEAP_UP",
+              "delta": 2,
+              "original_weight": 0.125,
+              "effective_probability": 0.2173913043478261
+            }
+          ]
+        },
+        {
+          "position": 4,
+          "production": "STEP_UP",
+          "delta": 1,
+          "degree_before": 2,
+          "degree_after": 3,
+          "effective_probabilities": [
+            {
+              "production": "STEP_UP",
+              "delta": 1,
+              "original_weight": 0.3,
+              "effective_probability": 0.34285714285714286
+            },
+            {
+              "production": "STEP_DOWN",
+              "delta": -1,
+              "original_weight": 0.3,
+              "effective_probability": 0.34285714285714286
+            },
+            {
+              "production": "REPEAT",
+              "delta": 0,
+              "original_weight": 0.15,
+              "effective_probability": 0.17142857142857143
+            },
+            {
+              "production": "LEAP_UP",
+              "delta": 2,
+              "original_weight": 0.125,
+              "effective_probability": 0.14285714285714285
+            }
+          ]
+        },
+        {
+          "position": 5,
+          "production": "STEP_UP",
+          "delta": 1,
+          "degree_before": 3,
+          "degree_after": 4,
+          "effective_probabilities": [
+            {
+              "production": "STEP_UP",
+              "delta": 1,
+              "original_weight": 0.3,
+              "effective_probability": 0.3
+            },
+            {
+              "production": "STEP_DOWN",
+              "delta": -1,
+              "original_weight": 0.3,
+              "effective_probability": 0.3
+            },
+            {
+              "production": "REPEAT",
+              "delta": 0,
+              "original_weight": 0.15,
+              "effective_probability": 0.15
+            },
+            {
+              "production": "LEAP_UP",
+              "delta": 2,
+              "original_weight": 0.125,
+              "effective_probability": 0.125
+            },
+            {
+              "production": "LEAP_DOWN",
+              "delta": -2,
+              "original_weight": 0.125,
+              "effective_probability": 0.125
+            }
+          ]
+        },
+        {
+          "position": 6,
+          "production": "STEP_DOWN",
+          "delta": -1,
+          "degree_before": 4,
+          "degree_after": 3,
+          "effective_probabilities": [
+            {
+              "production": "STEP_UP",
+              "delta": 1,
+              "original_weight": 0.3,
+              "effective_probability": 0.3
+            },
+            {
+              "production": "STEP_DOWN",
+              "delta": -1,
+              "original_weight": 0.3,
+              "effective_probability": 0.3
+            },
+            {
+              "production": "REPEAT",
+              "delta": 0,
+              "original_weight": 0.15,
+              "effective_probability": 0.15
+            },
+            {
+              "production": "LEAP_UP",
+              "delta": 2,
+              "original_weight": 0.125,
+              "effective_probability": 0.125
+            },
+            {
+              "production": "LEAP_DOWN",
+              "delta": -2,
+              "original_weight": 0.125,
+              "effective_probability": 0.125
+            }
+          ]
+        }
+      ],
+      "cadence": {
+        "production": "CAD_3_1",
+        "degrees": [
+          3,
+          1
+        ],
+        "effective_probabilities": [
+          {
+            "production": "CAD_2_1",
+            "degrees": [
+              2,
+              1
+            ],
+            "original_weight": 0.35,
+            "effective_probability": 0.35
+          },
+          {
+            "production": "CAD_3_1",
+            "degrees": [
+              3,
+              1
+            ],
+            "original_weight": 0.25,
+            "effective_probability": 0.25
+          },
+          {
+            "production": "CAD_4_3",
+            "degrees": [
+              4,
+              3
+            ],
+            "original_weight": 0.2,
+            "effective_probability": 0.2
+          },
+          {
+            "production": "CAD_2_3",
+            "degrees": [
+              2,
+              3
+            ],
+            "original_weight": 0.2,
+            "effective_probability": 0.2
+          }
+        ],
+        "note": "Gramática cadencial definida como decisão computacional da V2.3; não é uma afirmação histórica sobre a cantoria/repente."
+      }
+    }
+  },
+  "families": {
+    "R1": {
+      "role": "R1",
+      "backbone": [
+        {
+          "degree": 3,
+          "octave_offset": 0,
+          "midi_pitch": 64
+        },
+        {
+          "degree": 1,
+          "octave_offset": 0,
+          "midi_pitch": 60
+        },
+        {
+          "degree": 2,
+          "octave_offset": 0,
+          "midi_pitch": 62
+        },
+        {
+          "degree": 3,
+          "octave_offset": 0,
+          "midi_pitch": 64
+        },
+        {
+          "degree": 4,
+          "octave_offset": 0,
+          "midi_pitch": 65
+        },
+        {
+          "degree": 3,
+          "octave_offset": 0,
+          "midi_pitch": 64
+        },
+        {
+          "degree": 3,
+          "octave_offset": 0,
+          "midi_pitch": 64
+        },
+        {
+          "degree": 1,
+          "octave_offset": 0,
+          "midi_pitch": 60
+        }
+      ],
+      "initial_cadence": {
+        "production": "CAD_4_3",
+        "positions": [
+          7,
+          8
+        ],
+        "degrees": [
+          4,
+          3
+        ],
+        "before": [
+          {
+            "degree": 3,
+            "octave_offset": 0
+          },
+          {
+            "degree": 1,
+            "octave_offset": 0
+          }
+        ],
+        "after": [
+          {
+            "degree": 4,
+            "octave_offset": 0
+          },
+          {
+            "degree": 3,
+            "octave_offset": 0
+          }
+        ],
+        "effective_probabilities": [
+          {
+            "production": "CAD_2_1",
+            "degrees": [
+              2,
+              1
+            ],
+            "original_weight": 0.35,
+            "effective_probability": 0.35
+          },
+          {
+            "production": "CAD_3_1",
+            "degrees": [
+              3,
+              1
+            ],
+            "original_weight": 0.25,
+            "effective_probability": 0.25
+          },
+          {
+            "production": "CAD_4_3",
+            "degrees": [
+              4,
+              3
+            ],
+            "original_weight": 0.2,
+            "effective_probability": 0.2
+          },
+          {
+            "production": "CAD_2_3",
+            "degrees": [
+              2,
+              3
+            ],
+            "original_weight": 0.2,
+            "effective_probability": 0.2
+          }
+        ],
+        "note": "Cadência própria da família gerada por CADENCE; decisão computacional da V2.3."
+      },
+      "final_cadence": {
+        "production": "CAD_3_1",
+        "degrees": [
+          3,
+          1
+        ],
+        "original_probability": 0.25
+      },
+      "transformations": [
+        {
+          "transformation": "INVERT_LOCAL_GESTURE",
+          "external_probability": 0.25,
+          "positions": [
+            4,
+            5
+          ],
+          "pivot_position": 4,
+          "valid_candidates": [
+            {
+              "positions": [
+                1,
+                2
+              ],
+              "resulting_second_degree": 5,
+              "effective_probability": 0.25
+            },
+            {
+              "positions": [
+                3,
+                4
+              ],
+              "resulting_second_degree": 1,
+              "effective_probability": 0.25
+            },
+            {
+              "positions": [
+                4,
+                5
+              ],
+              "resulting_second_degree": 2,
+              "effective_probability": 0.25
+            },
+            {
+              "positions": [
+                5,
+                6
+              ],
+              "resulting_second_degree": 5,
+              "effective_probability": 0.25
+            }
+          ],
+          "before": [
+            {
+              "degree": 3,
+              "octave_offset": 0
+            },
+            {
+              "degree": 4,
+              "octave_offset": 0
+            }
+          ],
+          "after": [
+            {
+              "degree": 3,
+              "octave_offset": 0
+            },
+            {
+              "degree": 2,
+              "octave_offset": 0
+            }
+          ],
+          "derivation_step": 1
+        },
+        {
+          "transformation": "ALTER_CADENCE",
+          "external_probability": 0.25,
+          "positions": [
+            7,
+            8
+          ],
+          "cadence_before": {
+            "production": "CAD_4_3",
+            "degrees": [
+              4,
+              3
+            ]
+          },
+          "cadence_after": {
+            "production": "CAD_3_1",
+            "degrees": [
+              3,
+              1
+            ]
+          },
+          "effective_probabilities": [
+            {
+              "production": "CAD_2_1",
+              "degrees": [
+                2,
+                1
+              ],
+              "original_weight": 0.35,
+              "effective_probability": 0.43749999999999994
+            },
+            {
+              "production": "CAD_3_1",
+              "degrees": [
+                3,
+                1
+              ],
+              "original_weight": 0.25,
+              "effective_probability": 0.3125
+            },
+            {
+              "production": "CAD_2_3",
+              "degrees": [
+                2,
+                3
+              ],
+              "original_weight": 0.2,
+              "effective_probability": 0.25
+            }
+          ],
+          "before": [
+            {
+              "degree": 4,
+              "octave_offset": 0
+            },
+            {
+              "degree": 3,
+              "octave_offset": 0
+            }
+          ],
+          "after": [
+            {
+              "degree": 3,
+              "octave_offset": 0
+            },
+            {
+              "degree": 1,
+              "octave_offset": 0
+            }
+          ],
+          "derivation_step": 2
+        },
+        {
+          "transformation": "INVERT_LOCAL_GESTURE",
+          "external_probability": 0.25,
+          "positions": [
+            4,
+            5
+          ],
+          "pivot_position": 4,
+          "valid_candidates": [
+            {
+              "positions": [
+                1,
+                2
+              ],
+              "resulting_second_degree": 5,
+              "effective_probability": 0.25
+            },
+            {
+              "positions": [
+                3,
+                4
+              ],
+              "resulting_second_degree": 1,
+              "effective_probability": 0.25
+            },
+            {
+              "positions": [
+                4,
+                5
+              ],
+              "resulting_second_degree": 4,
+              "effective_probability": 0.25
+            },
+            {
+              "positions": [
+                5,
+                6
+              ],
+              "resulting_second_degree": 1,
+              "effective_probability": 0.25
+            }
+          ],
+          "before": [
+            {
+              "degree": 3,
+              "octave_offset": 0
+            },
+            {
+              "degree": 2,
+              "octave_offset": 0
+            }
+          ],
+          "after": [
+            {
+              "degree": 3,
+              "octave_offset": 0
+            },
+            {
+              "degree": 4,
+              "octave_offset": 0
+            }
+          ],
+          "derivation_step": 3
+        }
+      ],
+      "instrument": {
+        "role": "R1",
+        "cultural_label": "Violão",
+        "track_label": "Violão",
+        "midi_instrument": "Acoustic Guitar (nylon)",
+        "midi_program": 24,
+        "track_name": "R1 - Violão",
+        "proxy_note": "Violão é rótulo cultural do projeto; o timbre MIDI/MuseScore utilizado como proxy é Acoustic Guitar (nylon)."
+      }
+    },
+    "R2": {
+      "role": "R2",
+      "backbone": [
+        {
+          "degree": 3,
+          "octave_offset": 0,
+          "midi_pitch": 64
+        },
+        {
+          "degree": 2,
+          "octave_offset": 0,
+          "midi_pitch": 62
+        },
+        {
+          "degree": 1,
+          "octave_offset": 0,
+          "midi_pitch": 60
+        },
+        {
+          "degree": 3,
+          "octave_offset": 0,
+          "midi_pitch": 64
+        },
+        {
+          "degree": 4,
+          "octave_offset": 0,
+          "midi_pitch": 65
+        },
+        {
+          "degree": 3,
+          "octave_offset": 0,
+          "midi_pitch": 64
+        },
+        {
+          "degree": 3,
+          "octave_offset": 0,
+          "midi_pitch": 64
+        },
+        {
+          "degree": 1,
+          "octave_offset": 0,
+          "midi_pitch": 60
+        }
+      ],
+      "initial_cadence": {
+        "production": "CAD_2_3",
+        "positions": [
+          7,
+          8
+        ],
+        "degrees": [
+          2,
+          3
+        ],
+        "before": [
+          {
+            "degree": 3,
+            "octave_offset": 0
+          },
+          {
+            "degree": 1,
+            "octave_offset": 0
+          }
+        ],
+        "after": [
+          {
+            "degree": 2,
+            "octave_offset": 0
+          },
+          {
+            "degree": 3,
+            "octave_offset": 0
+          }
+        ],
+        "effective_probabilities": [
+          {
+            "production": "CAD_2_1",
+            "degrees": [
+              2,
+              1
+            ],
+            "original_weight": 0.35,
+            "effective_probability": 0.35
+          },
+          {
+            "production": "CAD_3_1",
+            "degrees": [
+              3,
+              1
+            ],
+            "original_weight": 0.25,
+            "effective_probability": 0.25
+          },
+          {
+            "production": "CAD_4_3",
+            "degrees": [
+              4,
+              3
+            ],
+            "original_weight": 0.2,
+            "effective_probability": 0.2
+          },
+          {
+            "production": "CAD_2_3",
+            "degrees": [
+              2,
+              3
+            ],
+            "original_weight": 0.2,
+            "effective_probability": 0.2
+          }
+        ],
+        "note": "Cadência própria da família gerada por CADENCE; decisão computacional da V2.3."
+      },
+      "final_cadence": {
+        "production": "CAD_3_1",
+        "degrees": [
+          3,
+          1
+        ],
+        "original_probability": 0.25
+      },
+      "transformations": [
+        {
+          "transformation": "ALTER_DEGREE",
+          "external_probability": 0.25,
+          "positions": [
+            2
+          ],
+          "position_probability": 0.16666666666666666,
+          "valid_deltas": [
+            {
+              "delta": 1,
+              "effective_probability": 1.0
+            }
+          ],
+          "delta_degree": 1,
+          "before": [
+            {
+              "degree": 1,
+              "octave_offset": 0
+            }
+          ],
+          "after": [
+            {
+              "degree": 2,
+              "octave_offset": 0
+            }
+          ],
+          "derivation_step": 1
+        },
+        {
+          "transformation": "ALTER_CADENCE",
+          "external_probability": 0.25,
+          "positions": [
+            7,
+            8
+          ],
+          "cadence_before": {
+            "production": "CAD_2_3",
+            "degrees": [
+              2,
+              3
+            ]
+          },
+          "cadence_after": {
+            "production": "CAD_3_1",
+            "degrees": [
+              3,
+              1
+            ]
+          },
+          "effective_probabilities": [
+            {
+              "production": "CAD_2_1",
+              "degrees": [
+                2,
+                1
+              ],
+              "original_weight": 0.35,
+              "effective_probability": 0.43749999999999994
+            },
+            {
+              "production": "CAD_3_1",
+              "degrees": [
+                3,
+                1
+              ],
+              "original_weight": 0.25,
+              "effective_probability": 0.3125
+            },
+            {
+              "production": "CAD_4_3",
+              "degrees": [
+                4,
+                3
+              ],
+              "original_weight": 0.2,
+              "effective_probability": 0.25
+            }
+          ],
+          "before": [
+            {
+              "degree": 2,
+              "octave_offset": 0
+            },
+            {
+              "degree": 3,
+              "octave_offset": 0
+            }
+          ],
+          "after": [
+            {
+              "degree": 3,
+              "octave_offset": 0
+            },
+            {
+              "degree": 1,
+              "octave_offset": 0
+            }
+          ],
+          "derivation_step": 2
+        },
+        {
+          "transformation": "ALTER_DEGREE",
+          "external_probability": 0.25,
+          "positions": [
+            3
+          ],
+          "position_probability": 0.16666666666666666,
+          "valid_deltas": [
+            {
+              "delta": -1,
+              "effective_probability": 0.5
+            },
+            {
+              "delta": 1,
+              "effective_probability": 0.5
+            }
+          ],
+          "delta_degree": -1,
+          "before": [
+            {
+              "degree": 2,
+              "octave_offset": 0
+            }
+          ],
+          "after": [
+            {
+              "degree": 1,
+              "octave_offset": 0
+            }
+          ],
+          "derivation_step": 3
+        }
+      ],
+      "instrument": {
+        "role": "R2",
+        "cultural_label": "Sanfona",
+        "track_label": "Sanfona",
+        "midi_instrument": "Accordion",
+        "midi_program": 21,
+        "track_name": "R2 - Sanfona",
+        "proxy_note": "Sanfona é rótulo cultural do projeto; o timbre MIDI/MuseScore utilizado como proxy é Accordion."
+      }
+    },
+    "R3": {
+      "role": "R3",
+      "backbone": [
+        {
+          "degree": 4,
+          "octave_offset": 0,
+          "midi_pitch": 65
+        },
+        {
+          "degree": 1,
+          "octave_offset": 0,
+          "midi_pitch": 60
+        },
+        {
+          "degree": 2,
+          "octave_offset": 0,
+          "midi_pitch": 62
+        },
+        {
+          "degree": 3,
+          "octave_offset": 0,
+          "midi_pitch": 64
+        },
+        {
+          "degree": 4,
+          "octave_offset": 0,
+          "midi_pitch": 65
+        },
+        {
+          "degree": 5,
+          "octave_offset": 0,
+          "midi_pitch": 67
+        },
+        {
+          "degree": 2,
+          "octave_offset": 0,
+          "midi_pitch": 62
+        },
+        {
+          "degree": 1,
+          "octave_offset": 0,
+          "midi_pitch": 60
+        }
+      ],
+      "initial_cadence": {
+        "production": "CAD_2_3",
+        "positions": [
+          7,
+          8
+        ],
+        "degrees": [
+          2,
+          3
+        ],
+        "before": [
+          {
+            "degree": 3,
+            "octave_offset": 0
+          },
+          {
+            "degree": 1,
+            "octave_offset": 0
+          }
+        ],
+        "after": [
+          {
+            "degree": 2,
+            "octave_offset": 0
+          },
+          {
+            "degree": 3,
+            "octave_offset": 0
+          }
+        ],
+        "effective_probabilities": [
+          {
+            "production": "CAD_2_1",
+            "degrees": [
+              2,
+              1
+            ],
+            "original_weight": 0.35,
+            "effective_probability": 0.35
+          },
+          {
+            "production": "CAD_3_1",
+            "degrees": [
+              3,
+              1
+            ],
+            "original_weight": 0.25,
+            "effective_probability": 0.25
+          },
+          {
+            "production": "CAD_4_3",
+            "degrees": [
+              4,
+              3
+            ],
+            "original_weight": 0.2,
+            "effective_probability": 0.2
+          },
+          {
+            "production": "CAD_2_3",
+            "degrees": [
+              2,
+              3
+            ],
+            "original_weight": 0.2,
+            "effective_probability": 0.2
+          }
+        ],
+        "note": "Cadência própria da família gerada por CADENCE; decisão computacional da V2.3."
+      },
+      "final_cadence": {
+        "production": "CAD_2_1",
+        "degrees": [
+          2,
+          1
+        ],
+        "original_probability": 0.35
+      },
+      "transformations": [
+        {
+          "transformation": "INVERT_LOCAL_GESTURE",
+          "external_probability": 0.25,
+          "positions": [
+            5,
+            6
+          ],
+          "pivot_position": 5,
+          "valid_candidates": [
+            {
+              "positions": [
+                1,
+                2
+              ],
+              "resulting_second_degree": 5,
+              "effective_probability": 0.25
+            },
+            {
+              "positions": [
+                3,
+                4
+              ],
+              "resulting_second_degree": 1,
+              "effective_probability": 0.25
+            },
+            {
+              "positions": [
+                4,
+                5
+              ],
+              "resulting_second_degree": 2,
+              "effective_probability": 0.25
+            },
+            {
+              "positions": [
+                5,
+                6
+              ],
+              "resulting_second_degree": 5,
+              "effective_probability": 0.25
+            }
+          ],
+          "before": [
+            {
+              "degree": 4,
+              "octave_offset": 0
+            },
+            {
+              "degree": 3,
+              "octave_offset": 0
+            }
+          ],
+          "after": [
+            {
+              "degree": 4,
+              "octave_offset": 0
+            },
+            {
+              "degree": 5,
+              "octave_offset": 0
+            }
+          ],
+          "derivation_step": 1
+        },
+        {
+          "transformation": "ALTER_CADENCE",
+          "external_probability": 0.25,
+          "positions": [
+            7,
+            8
+          ],
+          "cadence_before": {
+            "production": "CAD_2_3",
+            "degrees": [
+              2,
+              3
+            ]
+          },
+          "cadence_after": {
+            "production": "CAD_2_1",
+            "degrees": [
+              2,
+              1
+            ]
+          },
+          "effective_probabilities": [
+            {
+              "production": "CAD_2_1",
+              "degrees": [
+                2,
+                1
+              ],
+              "original_weight": 0.35,
+              "effective_probability": 0.43749999999999994
+            },
+            {
+              "production": "CAD_3_1",
+              "degrees": [
+                3,
+                1
+              ],
+              "original_weight": 0.25,
+              "effective_probability": 0.3125
+            },
+            {
+              "production": "CAD_4_3",
+              "degrees": [
+                4,
+                3
+              ],
+              "original_weight": 0.2,
+              "effective_probability": 0.25
+            }
+          ],
+          "before": [
+            {
+              "degree": 2,
+              "octave_offset": 0
+            },
+            {
+              "degree": 3,
+              "octave_offset": 0
+            }
+          ],
+          "after": [
+            {
+              "degree": 2,
+              "octave_offset": 0
+            },
+            {
+              "degree": 1,
+              "octave_offset": 0
+            }
+          ],
+          "derivation_step": 2
+        },
+        {
+          "transformation": "ALTER_DEGREE",
+          "external_probability": 0.25,
+          "positions": [
+            1
+          ],
+          "position_probability": 0.16666666666666666,
+          "valid_deltas": [
+            {
+              "delta": -1,
+              "effective_probability": 0.5
+            },
+            {
+              "delta": 1,
+              "effective_probability": 0.5
+            }
+          ],
+          "delta_degree": 1,
+          "before": [
+            {
+              "degree": 3,
+              "octave_offset": 0
+            }
+          ],
+          "after": [
+            {
+              "degree": 4,
+              "octave_offset": 0
+            }
+          ],
+          "derivation_step": 3
+        }
+      ],
+      "instrument": {
+        "role": "R3",
+        "cultural_label": "Rabeca",
+        "track_label": "Rabeca",
+        "midi_instrument": "Fiddle",
+        "midi_program": 110,
+        "track_name": "R3 - Rabeca",
+        "proxy_note": "Rabeca é rótulo cultural do projeto; o timbre MIDI/MuseScore utilizado como proxy é Fiddle."
+      }
+    },
+    "R4": {
+      "role": "R4",
+      "backbone": [
+        {
+          "degree": 3,
+          "octave_offset": 0,
+          "midi_pitch": 64
+        },
+        {
+          "degree": 5,
+          "octave_offset": 0,
+          "midi_pitch": 67
+        },
+        {
+          "degree": 2,
+          "octave_offset": 0,
+          "midi_pitch": 62
+        },
+        {
+          "degree": 3,
+          "octave_offset": 0,
+          "midi_pitch": 64
+        },
+        {
+          "degree": 4,
+          "octave_offset": 0,
+          "midi_pitch": 65
+        },
+        {
+          "degree": 3,
+          "octave_offset": 0,
+          "midi_pitch": 64
+        },
+        {
+          "degree": 4,
+          "octave_offset": 0,
+          "midi_pitch": 65
+        },
+        {
+          "degree": 3,
+          "octave_offset": 0,
+          "midi_pitch": 64
+        }
+      ],
+      "initial_cadence": {
+        "production": "CAD_3_1",
+        "positions": [
+          7,
+          8
+        ],
+        "degrees": [
+          3,
+          1
+        ],
+        "before": [
+          {
+            "degree": 3,
+            "octave_offset": 0
+          },
+          {
+            "degree": 1,
+            "octave_offset": 0
+          }
+        ],
+        "after": [
+          {
+            "degree": 3,
+            "octave_offset": 0
+          },
+          {
+            "degree": 1,
+            "octave_offset": 0
+          }
+        ],
+        "effective_probabilities": [
+          {
+            "production": "CAD_2_1",
+            "degrees": [
+              2,
+              1
+            ],
+            "original_weight": 0.35,
+            "effective_probability": 0.35
+          },
+          {
+            "production": "CAD_3_1",
+            "degrees": [
+              3,
+              1
+            ],
+            "original_weight": 0.25,
+            "effective_probability": 0.25
+          },
+          {
+            "production": "CAD_4_3",
+            "degrees": [
+              4,
+              3
+            ],
+            "original_weight": 0.2,
+            "effective_probability": 0.2
+          },
+          {
+            "production": "CAD_2_3",
+            "degrees": [
+              2,
+              3
+            ],
+            "original_weight": 0.2,
+            "effective_probability": 0.2
+          }
+        ],
+        "note": "Cadência própria da família gerada por CADENCE; decisão computacional da V2.3."
+      },
+      "final_cadence": {
+        "production": "CAD_4_3",
+        "degrees": [
+          4,
+          3
+        ],
+        "original_probability": 0.2
+      },
+      "transformations": [
+        {
+          "transformation": "ALTER_CADENCE",
+          "external_probability": 0.25,
+          "positions": [
+            7,
+            8
+          ],
+          "cadence_before": {
+            "production": "CAD_3_1",
+            "degrees": [
+              3,
+              1
+            ]
+          },
+          "cadence_after": {
+            "production": "CAD_4_3",
+            "degrees": [
+              4,
+              3
+            ]
+          },
+          "effective_probabilities": [
+            {
+              "production": "CAD_2_1",
+              "degrees": [
+                2,
+                1
+              ],
+              "original_weight": 0.35,
+              "effective_probability": 0.4666666666666666
+            },
+            {
+              "production": "CAD_4_3",
+              "degrees": [
+                4,
+                3
+              ],
+              "original_weight": 0.2,
+              "effective_probability": 0.26666666666666666
+            },
+            {
+              "production": "CAD_2_3",
+              "degrees": [
+                2,
+                3
+              ],
+              "original_weight": 0.2,
+              "effective_probability": 0.26666666666666666
+            }
+          ],
+          "before": [
+            {
+              "degree": 3,
+              "octave_offset": 0
+            },
+            {
+              "degree": 1,
+              "octave_offset": 0
+            }
+          ],
+          "after": [
+            {
+              "degree": 4,
+              "octave_offset": 0
+            },
+            {
+              "degree": 3,
+              "octave_offset": 0
+            }
+          ],
+          "derivation_step": 1
+        },
+        {
+          "transformation": "PRESERVE",
+          "external_probability": 0.25,
+          "positions": [],
+          "before": [],
+          "after": [],
+          "derivation_step": 2
+        },
+        {
+          "transformation": "INVERT_LOCAL_GESTURE",
+          "external_probability": 0.25,
+          "positions": [
+            1,
+            2
+          ],
+          "pivot_position": 1,
+          "valid_candidates": [
+            {
+              "positions": [
+                1,
+                2
+              ],
+              "resulting_second_degree": 5,
+              "effective_probability": 0.25
+            },
+            {
+              "positions": [
+                3,
+                4
+              ],
+              "resulting_second_degree": 1,
+              "effective_probability": 0.25
+            },
+            {
+              "positions": [
+                4,
+                5
+              ],
+              "resulting_second_degree": 2,
+              "effective_probability": 0.25
+            },
+            {
+              "positions": [
+                5,
+                6
+              ],
+              "resulting_second_degree": 5,
+              "effective_probability": 0.25
+            }
+          ],
+          "before": [
+            {
+              "degree": 3,
+              "octave_offset": 0
+            },
+            {
+              "degree": 1,
+              "octave_offset": 0
+            }
+          ],
+          "after": [
+            {
+              "degree": 3,
+              "octave_offset": 0
+            },
+            {
+              "degree": 5,
+              "octave_offset": 0
+            }
+          ],
+          "derivation_step": 3
+        }
+      ],
+      "instrument": {
+        "role": "R4",
+        "cultural_label": "Viola nordestina / viola sertaneja",
+        "track_label": "Viola",
+        "midi_instrument": "Acoustic Guitar (steel)",
+        "midi_program": 25,
+        "track_name": "R4 - Viola",
+        "proxy_note": "Viola nordestina / viola sertaneja é rótulo cultural do projeto; o timbre MIDI/MuseScore utilizado como proxy é Acoustic Guitar (steel)."
+      }
+    }
+  },
+  "rhythm_bases": {
+    "R1": {
+      "role": "R1",
+      "cell_indices": [
+        2,
+        0,
+        1,
+        0
+      ],
+      "cells": [
+        [
+          1.5,
+          0.5
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.5,
+          1.5
+        ],
+        [
+          1.0,
+          1.0
+        ]
+      ],
+      "durations": [
+        1.5,
+        0.5,
+        1.0,
+        1.0,
+        0.5,
+        1.5,
+        1.0,
+        1.0
+      ],
+      "cell_probability": 0.3333333333333333
+    },
+    "R2": {
+      "role": "R2",
+      "cell_indices": [
+        0,
+        0,
+        1,
+        1
+      ],
+      "cells": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.0,
+          1.0
+        ],
+        [
+          0.5,
+          1.5
+        ],
+        [
+          0.5,
+          1.5
+        ]
+      ],
+      "durations": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        0.5,
+        1.5,
+        0.5,
+        1.5
+      ],
+      "cell_probability": 0.3333333333333333
+    },
+    "R3": {
+      "role": "R3",
+      "cell_indices": [
+        0,
+        2,
+        1,
+        2
+      ],
+      "cells": [
+        [
+          1.0,
+          1.0
+        ],
+        [
+          1.5,
+          0.5
+        ],
+        [
+          0.5,
+          1.5
+        ],
+        [
+          1.5,
+          0.5
+        ]
+      ],
+      "durations": [
+        1.0,
+        1.0,
+        1.5,
+        0.5,
+        0.5,
+        1.5,
+        1.5,
+        0.5
+      ],
+      "cell_probability": 0.3333333333333333
+    },
+    "R4": {
+      "role": "R4",
+      "cell_indices": [
+        1,
+        1,
+        2,
+        1
+      ],
+      "cells": [
+        [
+          0.5,
+          1.5
+        ],
+        [
+          0.5,
+          1.5
+        ],
+        [
+          1.5,
+          0.5
+        ],
+        [
+          0.5,
+          1.5
+        ]
+      ],
+      "durations": [
+        0.5,
+        1.5,
+        0.5,
+        1.5,
+        1.5,
+        0.5,
+        0.5,
+        1.5
+      ],
+      "cell_probability": 0.3333333333333333
+    }
+  },
+  "validation": {
+    "exactly_10_phrases": true,
+    "structure_is_R1R2R2R1R1R3R3R4R4R3": true,
+    "corresponds_to_ABBAACCDDC": true,
+    "exactly_8_events_per_phrase": true,
+    "exactly_80_total_events": true,
+    "role_phrase_positions_exact": true,
+    "role_event_counts_exact": true,
+    "toada_has_8_slots": true,
+    "toada_degrees_valid": true,
+    "toada_initial_degree_valid": true,
+    "toada_cadence_valid": true,
+    "four_families_exist": true,
+    "family_backbones_have_8_slots": true,
+    "family_degrees_valid": true,
+    "family_cadences_valid": true,
+    "all_toada_octave_offsets_zero": true,
+    "all_backbone_octave_offsets_zero": true,
+    "all_event_octave_offsets_zero": true,
+    "four_rhythm_backbones_exist": true,
+    "rhythm_backbones_have_8_events": true,
+    "every_rhythm_cell_sums_2_beats": true,
+    "every_phrase_is_8_beats": true,
+    "four_instrument_assignments_exist": true,
+    "cultural_labels_are_unique": true,
+    "midi_instruments_are_unique": true,
+    "midi_programs_valid": true,
+    "phrase_instrument_matches_role": true,
+    "durations_positive": true,
+    "realized_degrees_valid": true,
+    "midi_pitches_valid": true,
+    "protected_slots_never_microvaried": true,
+    "microvariation_only_positions_2_to_6": true,
+    "phrases_use_family_backbone": true,
+    "phrases_use_family_rhythm": true,
+    "same_seed_and_config_are_reproducible": true,
+    "all_valid": true
+  },
+  "midi_validation": {
+    "exactly_4_instrument_tracks": true,
+    "track_names_exact": true,
+    "track_programs_match_assignment": true,
+    "track_note_counts_exact": true,
+    "total_midi_notes_80": true,
+    "tracks_only_play_expected_phrases": true,
+    "all_valid": true
+  },
+  "experiment_validation": {
+    "same_seed": true,
+    "same_toada_base": true,
+    "same_family_backbones": true,
+    "same_family_cadences": true,
+    "same_rhythm_backbones": true,
+    "same_instrument_assignment": true,
+    "same_micro_random_flow": true,
+    "m1_microvariations_are_subset_of_m3": true,
+    "realized_outputs_are_different": true,
+    "all_valid": true
+  },
+  "metrics": {
+    "eligible_microvariation_positions": 50,
+    "microvariation_count": 12,
+    "observed_microvariation_rate": 0.24,
+    "mean_intra_class_degree_similarity": 0.765625,
+    "mean_inter_class_degree_similarity": 0.4155405405405405,
+    "mean_intra_class_pitch_similarity": 0.765625,
+    "mean_inter_class_pitch_similarity": 0.4155405405405405,
+    "mean_intra_class_rhythm_similarity": 1.0,
+    "mean_inter_class_rhythm_similarity": 0.25,
+    "mean_intra_class_combined_similarity": 0.765625,
+    "mean_inter_class_combined_similarity": 0.08445945945945946,
+    "intra_greater_than_inter_combined": true,
+    "intra_class_pair_count": 8,
+    "inter_class_pair_count": 37,
+    "intra_class_pairs": [
+      {
+        "phrase_i": 1,
+        "phrase_j": 4,
+        "role_i": "R1",
+        "role_j": "R1",
+        "degree_similarity": 0.875,
+        "pitch_similarity": 0.875,
+        "rhythm_similarity": 1.0,
+        "combined_similarity": 0.875
+      },
+      {
+        "phrase_i": 1,
+        "phrase_j": 5,
+        "role_i": "R1",
+        "role_j": "R1",
+        "degree_similarity": 0.625,
+        "pitch_similarity": 0.625,
+        "rhythm_similarity": 1.0,
+        "combined_similarity": 0.625
+      },
+      {
+        "phrase_i": 2,
+        "phrase_j": 3,
+        "role_i": "R2",
+        "role_j": "R2",
+        "degree_similarity": 0.75,
+        "pitch_similarity": 0.75,
+        "rhythm_similarity": 1.0,
+        "combined_similarity": 0.75
+      },
+      {
+        "phrase_i": 4,
+        "phrase_j": 5,
+        "role_i": "R1",
+        "role_j": "R1",
+        "degree_similarity": 0.75,
+        "pitch_similarity": 0.75,
+        "rhythm_similarity": 1.0,
+        "combined_similarity": 0.75
+      },
+      {
+        "phrase_i": 6,
+        "phrase_j": 7,
+        "role_i": "R3",
+        "role_j": "R3",
+        "degree_similarity": 0.75,
+        "pitch_similarity": 0.75,
+        "rhythm_similarity": 1.0,
+        "combined_similarity": 0.75
+      },
+      {
+        "phrase_i": 6,
+        "phrase_j": 10,
+        "role_i": "R3",
+        "role_j": "R3",
+        "degree_similarity": 0.875,
+        "pitch_similarity": 0.875,
+        "rhythm_similarity": 1.0,
+        "combined_similarity": 0.875
+      },
+      {
+        "phrase_i": 7,
+        "phrase_j": 10,
+        "role_i": "R3",
+        "role_j": "R3",
+        "degree_similarity": 0.875,
+        "pitch_similarity": 0.875,
+        "rhythm_similarity": 1.0,
+        "combined_similarity": 0.875
+      },
+      {
+        "phrase_i": 8,
+        "phrase_j": 9,
+        "role_i": "R4",
+        "role_j": "R4",
+        "degree_similarity": 0.625,
+        "pitch_similarity": 0.625,
+        "rhythm_similarity": 1.0,
+        "combined_similarity": 0.625
+      }
+    ],
+    "inter_class_pairs": [
+      {
+        "phrase_i": 1,
+        "phrase_j": 2,
+        "role_i": "R1",
+        "role_j": "R2",
+        "degree_similarity": 0.625,
+        "pitch_similarity": 0.625,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.25
+      },
+      {
+        "phrase_i": 1,
+        "phrase_j": 3,
+        "role_i": "R1",
+        "role_j": "R2",
+        "degree_similarity": 0.625,
+        "pitch_similarity": 0.625,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.25
+      },
+      {
+        "phrase_i": 1,
+        "phrase_j": 6,
+        "role_i": "R1",
+        "role_j": "R3",
+        "degree_similarity": 0.25,
+        "pitch_similarity": 0.25,
+        "rhythm_similarity": 0.25,
+        "combined_similarity": 0.125
+      },
+      {
+        "phrase_i": 1,
+        "phrase_j": 7,
+        "role_i": "R1",
+        "role_j": "R3",
+        "degree_similarity": 0.5,
+        "pitch_similarity": 0.5,
+        "rhythm_similarity": 0.25,
+        "combined_similarity": 0.125
+      },
+      {
+        "phrase_i": 1,
+        "phrase_j": 8,
+        "role_i": "R1",
+        "role_j": "R4",
+        "degree_similarity": 0.5,
+        "pitch_similarity": 0.5,
+        "rhythm_similarity": 0.0,
+        "combined_similarity": 0.0
+      },
+      {
+        "phrase_i": 1,
+        "phrase_j": 9,
+        "role_i": "R1",
+        "role_j": "R4",
+        "degree_similarity": 0.375,
+        "pitch_similarity": 0.375,
+        "rhythm_similarity": 0.0,
+        "combined_similarity": 0.0
+      },
+      {
+        "phrase_i": 1,
+        "phrase_j": 10,
+        "role_i": "R1",
+        "role_j": "R3",
+        "degree_similarity": 0.375,
+        "pitch_similarity": 0.375,
+        "rhythm_similarity": 0.25,
+        "combined_similarity": 0.125
+      },
+      {
+        "phrase_i": 2,
+        "phrase_j": 4,
+        "role_i": "R2",
+        "role_j": "R1",
+        "degree_similarity": 0.625,
+        "pitch_similarity": 0.625,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.25
+      },
+      {
+        "phrase_i": 2,
+        "phrase_j": 5,
+        "role_i": "R2",
+        "role_j": "R1",
+        "degree_similarity": 0.625,
+        "pitch_similarity": 0.625,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.125
+      },
+      {
+        "phrase_i": 2,
+        "phrase_j": 6,
+        "role_i": "R2",
+        "role_j": "R3",
+        "degree_similarity": 0.25,
+        "pitch_similarity": 0.25,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.125
+      },
+      {
+        "phrase_i": 2,
+        "phrase_j": 7,
+        "role_i": "R2",
+        "role_j": "R3",
+        "degree_similarity": 0.25,
+        "pitch_similarity": 0.25,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.0
+      },
+      {
+        "phrase_i": 2,
+        "phrase_j": 8,
+        "role_i": "R2",
+        "role_j": "R4",
+        "degree_similarity": 0.5,
+        "pitch_similarity": 0.5,
+        "rhythm_similarity": 0.25,
+        "combined_similarity": 0.0
+      },
+      {
+        "phrase_i": 2,
+        "phrase_j": 9,
+        "role_i": "R2",
+        "role_j": "R4",
+        "degree_similarity": 0.25,
+        "pitch_similarity": 0.25,
+        "rhythm_similarity": 0.25,
+        "combined_similarity": 0.0
+      },
+      {
+        "phrase_i": 2,
+        "phrase_j": 10,
+        "role_i": "R2",
+        "role_j": "R3",
+        "degree_similarity": 0.375,
+        "pitch_similarity": 0.375,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.125
+      },
+      {
+        "phrase_i": 3,
+        "phrase_j": 4,
+        "role_i": "R2",
+        "role_j": "R1",
+        "degree_similarity": 0.75,
+        "pitch_similarity": 0.75,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.375
+      },
+      {
+        "phrase_i": 3,
+        "phrase_j": 5,
+        "role_i": "R2",
+        "role_j": "R1",
+        "degree_similarity": 0.75,
+        "pitch_similarity": 0.75,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.25
+      },
+      {
+        "phrase_i": 3,
+        "phrase_j": 6,
+        "role_i": "R2",
+        "role_j": "R3",
+        "degree_similarity": 0.375,
+        "pitch_similarity": 0.375,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.125
+      },
+      {
+        "phrase_i": 3,
+        "phrase_j": 7,
+        "role_i": "R2",
+        "role_j": "R3",
+        "degree_similarity": 0.375,
+        "pitch_similarity": 0.375,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.0
+      },
+      {
+        "phrase_i": 3,
+        "phrase_j": 8,
+        "role_i": "R2",
+        "role_j": "R4",
+        "degree_similarity": 0.375,
+        "pitch_similarity": 0.375,
+        "rhythm_similarity": 0.25,
+        "combined_similarity": 0.0
+      },
+      {
+        "phrase_i": 3,
+        "phrase_j": 9,
+        "role_i": "R2",
+        "role_j": "R4",
+        "degree_similarity": 0.375,
+        "pitch_similarity": 0.375,
+        "rhythm_similarity": 0.25,
+        "combined_similarity": 0.0
+      },
+      {
+        "phrase_i": 3,
+        "phrase_j": 10,
+        "role_i": "R2",
+        "role_j": "R3",
+        "degree_similarity": 0.5,
+        "pitch_similarity": 0.5,
+        "rhythm_similarity": 0.5,
+        "combined_similarity": 0.125
+      },
+      {
+        "phrase_i": 4,
+        "phrase_j": 6,
+        "role_i": "R1",
+        "role_j": "R3",
+        "degree_similarity": 0.375,
+        "pitch_similarity": 0.375,
+        "rhythm_similarity": 0.25,
+        "combined_similarity": 0.125
+      },
+      {
+        "phrase_i": 4,
+        "phrase_j": 7,
+        "role_i": "R1",
+        "role_j": "R3",
+        "degree_similarity": 0.625,
+        "pitch_similarity": 0.625,
+        "rhythm_similarity": 0.25,
+        "combined_similarity": 0.125
+      },
+      {
+        "phrase_i": 4,
+        "phrase_j": 8,
+        "role_i": "R1",
+        "role_j": "R4",
+        "degree_similarity": 0.375,
+        "pitch_similarity": 0.375,
+        "rhythm_similarity": 0.0,
+        "combined_similarity": 0.0
+      },
+      {
+        "phrase_i": 4,
+        "phrase_j": 9,
+        "role_i": "R1",
+        "role_j": "R4",
+        "degree_similarity": 0.5,
+        "pitch_similarity": 0.5,
+        "rhythm_similarity": 0.0,
+        "combined_similarity": 0.0
+      },
+      {
+        "phrase_i": 4,
+        "phrase_j": 10,
+        "role_i": "R1",
+        "role_j": "R3",
+        "degree_similarity": 0.5,
+        "pitch_similarity": 0.5,
+        "rhythm_similarity": 0.25,
+        "combined_similarity": 0.125
+      },
+      {
+        "phrase_i": 5,
+        "phrase_j": 6,
+        "role_i": "R1",
+        "role_j": "R3",
+        "degree_similarity": 0.5,
+        "pitch_similarity": 0.5,
+        "rhythm_similarity": 0.25,
+        "combined_similarity": 0.125
+      },
+      {
+        "phrase_i": 5,
+        "phrase_j": 7,
+        "role_i": "R1",
+        "role_j": "R3",
+        "degree_similarity": 0.5,
+        "pitch_similarity": 0.5,
+        "rhythm_similarity": 0.25,
+        "combined_similarity": 0.125
+      },
+      {
+        "phrase_i": 5,
+        "phrase_j": 8,
+        "role_i": "R1",
+        "role_j": "R4",
+        "degree_similarity": 0.25,
+        "pitch_similarity": 0.25,
+        "rhythm_similarity": 0.0,
+        "combined_similarity": 0.0
+      },
+      {
+        "phrase_i": 5,
+        "phrase_j": 9,
+        "role_i": "R1",
+        "role_j": "R4",
+        "degree_similarity": 0.375,
+        "pitch_similarity": 0.375,
+        "rhythm_similarity": 0.0,
+        "combined_similarity": 0.0
+      },
+      {
+        "phrase_i": 5,
+        "phrase_j": 10,
+        "role_i": "R1",
+        "role_j": "R3",
+        "degree_similarity": 0.625,
+        "pitch_similarity": 0.625,
+        "rhythm_similarity": 0.25,
+        "combined_similarity": 0.125
+      },
+      {
+        "phrase_i": 6,
+        "phrase_j": 8,
+        "role_i": "R3",
+        "role_j": "R4",
+        "degree_similarity": 0.0,
+        "pitch_similarity": 0.0,
+        "rhythm_similarity": 0.0,
+        "combined_similarity": 0.0
+      },
+      {
+        "phrase_i": 6,
+        "phrase_j": 9,
+        "role_i": "R3",
+        "role_j": "R4",
+        "degree_similarity": 0.375,
+        "pitch_similarity": 0.375,
+        "rhythm_similarity": 0.0,
+        "combined_similarity": 0.0
+      },
+      {
+        "phrase_i": 7,
+        "phrase_j": 8,
+        "role_i": "R3",
+        "role_j": "R4",
+        "degree_similarity": 0.125,
+        "pitch_similarity": 0.125,
+        "rhythm_similarity": 0.0,
+        "combined_similarity": 0.0
+      },
+      {
+        "phrase_i": 7,
+        "phrase_j": 9,
+        "role_i": "R3",
+        "role_j": "R4",
+        "degree_similarity": 0.25,
+        "pitch_similarity": 0.25,
+        "rhythm_similarity": 0.0,
+        "combined_similarity": 0.0
+      },
+      {
+        "phrase_i": 8,
+        "phrase_j": 10,
+        "role_i": "R4",
+        "role_j": "R3",
+        "degree_similarity": 0.125,
+        "pitch_similarity": 0.125,
+        "rhythm_similarity": 0.0,
+        "combined_similarity": 0.0
+      },
+      {
+        "phrase_i": 9,
+        "phrase_j": 10,
+        "role_i": "R4",
+        "role_j": "R3",
+        "degree_similarity": 0.25,
+        "pitch_similarity": 0.25,
+        "rhythm_similarity": 0.0,
+        "combined_similarity": 0.0
+      }
+    ],
+    "mean_backbone_degree_similarity_between_roles": 0.5416666666666666,
+    "mean_backbone_pitch_similarity_between_roles": 0.5416666666666666,
+    "backbone_role_pairs": [
+      {
+        "role_i": "R1",
+        "role_j": "R2",
+        "degree_similarity": 0.75,
+        "pitch_similarity": 0.75
+      },
+      {
+        "role_i": "R1",
+        "role_j": "R3",
+        "degree_similarity": 0.625,
+        "pitch_similarity": 0.625
+      },
+      {
+        "role_i": "R1",
+        "role_j": "R4",
+        "degree_similarity": 0.625,
+        "pitch_similarity": 0.625
+      },
+      {
+        "role_i": "R2",
+        "role_j": "R3",
+        "degree_similarity": 0.375,
+        "pitch_similarity": 0.375
+      },
+      {
+        "role_i": "R2",
+        "role_j": "R4",
+        "degree_similarity": 0.5,
+        "pitch_similarity": 0.5
+      },
+      {
+        "role_i": "R3",
+        "role_j": "R4",
+        "degree_similarity": 0.375,
+        "pitch_similarity": 0.375
+      }
+    ]
+  },
+  "phrases": [
+    {
+      "phrase_index": 1,
+      "role": "R1",
+      "role_occurrence": 1,
+      "cultural_label": "Violão",
+      "midi_instrument": "Acoustic Guitar (nylon)",
+      "midi_program": 24,
+      "track_name": "R1 - Violão",
+      "seed": 101,
+      "p_var": 0.2,
+      "microvariation_positions": [
+        3
+      ],
+      "micro_decisions": [
+        {
+          "position": 2,
+          "gate": 0.20204939062453453,
+          "selector": 0.3150060043420252,
+          "valid_deltas": [
+            1
+          ],
+          "proposed_delta": 1,
+          "degree_before": 1,
+          "degree_after_if_applied": 2,
+          "applied": false
+        },
+        {
+          "position": 3,
+          "gate": 0.03345257552217762,
+          "selector": 0.8900052648388879,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": 1,
+          "degree_before": 2,
+          "degree_after_if_applied": 3,
+          "applied": true
+        },
+        {
+          "position": 4,
+          "gate": 0.5805774593666235,
+          "selector": 0.8679982973787929,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": 1,
+          "degree_before": 3,
+          "degree_after_if_applied": 4,
+          "applied": false
+        },
+        {
+          "position": 5,
+          "gate": 0.9055546538037734,
+          "selector": 0.5457436736921378,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": 1,
+          "degree_before": 4,
+          "degree_after_if_applied": 5,
+          "applied": false
+        },
+        {
+          "position": 6,
+          "gate": 0.7097250971077073,
+          "selector": 0.6309697662326629,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": 1,
+          "degree_before": 3,
+          "degree_after_if_applied": 4,
+          "applied": false
+        }
+      ],
+      "microvariations": [
+        {
+          "position": 3,
+          "gate": 0.03345257552217762,
+          "selector": 0.8900052648388879,
+          "degree_before": 2,
+          "degree_after": 3,
+          "octave_offset": 0,
+          "midi_before": 62,
+          "midi_after": 64
+        }
+      ],
+      "events": [
+        {
+          "position": 1,
+          "backbone_degree": 3,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 64,
+          "realized_degree": 3,
+          "realized_octave_offset": 0,
+          "realized_midi": 64,
+          "duration": 1.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 2,
+          "backbone_degree": 1,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 60,
+          "realized_degree": 1,
+          "realized_octave_offset": 0,
+          "realized_midi": 60,
+          "duration": 0.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 3,
+          "backbone_degree": 2,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 62,
+          "realized_degree": 3,
+          "realized_octave_offset": 0,
+          "realized_midi": 64,
+          "duration": 1.0,
+          "velocity": 80,
+          "microvaried": true
+        },
+        {
+          "position": 4,
+          "backbone_degree": 3,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 64,
+          "realized_degree": 3,
+          "realized_octave_offset": 0,
+          "realized_midi": 64,
+          "duration": 1.0,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 5,
+          "backbone_degree": 4,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 65,
+          "realized_degree": 4,
+          "realized_octave_offset": 0,
+          "realized_midi": 65,
+          "duration": 0.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 6,
+          "backbone_degree": 3,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 64,
+          "realized_degree": 3,
+          "realized_octave_offset": 0,
+          "realized_midi": 64,
+          "duration": 1.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 7,
+          "backbone_degree": 3,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 64,
+          "realized_degree": 3,
+          "realized_octave_offset": 0,
+          "realized_midi": 64,
+          "duration": 1.0,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 8,
+          "backbone_degree": 1,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 60,
+          "realized_degree": 1,
+          "realized_octave_offset": 0,
+          "realized_midi": 60,
+          "duration": 1.0,
+          "velocity": 80,
+          "microvaried": false
+        }
+      ]
+    },
+    {
+      "phrase_index": 2,
+      "role": "R2",
+      "role_occurrence": 1,
+      "cultural_label": "Sanfona",
+      "midi_instrument": "Accordion",
+      "midi_program": 21,
+      "track_name": "R2 - Sanfona",
+      "seed": 101,
+      "p_var": 0.2,
+      "microvariation_positions": [
+        5
+      ],
+      "micro_decisions": [
+        {
+          "position": 2,
+          "gate": 0.7431113744206345,
+          "selector": 0.9830115508415191,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": 1,
+          "degree_before": 2,
+          "degree_after_if_applied": 3,
+          "applied": false
+        },
+        {
+          "position": 3,
+          "gate": 0.2960580727522245,
+          "selector": 0.7037867273484258,
+          "valid_deltas": [
+            1
+          ],
+          "proposed_delta": 1,
+          "degree_before": 1,
+          "degree_after_if_applied": 2,
+          "applied": false
+        },
+        {
+          "position": 4,
+          "gate": 0.5960098443649888,
+          "selector": 0.5718244306929768,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": 1,
+          "degree_before": 3,
+          "degree_after_if_applied": 4,
+          "applied": false
+        },
+        {
+          "position": 5,
+          "gate": 0.011822444547009203,
+          "selector": 0.35578433123082553,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": -1,
+          "degree_before": 4,
+          "degree_after_if_applied": 3,
+          "applied": true
+        },
+        {
+          "position": 6,
+          "gate": 0.8759216358696139,
+          "selector": 0.1604983992459652,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": -1,
+          "degree_before": 3,
+          "degree_after_if_applied": 2,
+          "applied": false
+        }
+      ],
+      "microvariations": [
+        {
+          "position": 5,
+          "gate": 0.011822444547009203,
+          "selector": 0.35578433123082553,
+          "degree_before": 4,
+          "degree_after": 3,
+          "octave_offset": 0,
+          "midi_before": 65,
+          "midi_after": 64
+        }
+      ],
+      "events": [
+        {
+          "position": 1,
+          "backbone_degree": 3,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 64,
+          "realized_degree": 3,
+          "realized_octave_offset": 0,
+          "realized_midi": 64,
+          "duration": 1.0,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 2,
+          "backbone_degree": 2,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 62,
+          "realized_degree": 2,
+          "realized_octave_offset": 0,
+          "realized_midi": 62,
+          "duration": 1.0,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 3,
+          "backbone_degree": 1,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 60,
+          "realized_degree": 1,
+          "realized_octave_offset": 0,
+          "realized_midi": 60,
+          "duration": 1.0,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 4,
+          "backbone_degree": 3,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 64,
+          "realized_degree": 3,
+          "realized_octave_offset": 0,
+          "realized_midi": 64,
+          "duration": 1.0,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 5,
+          "backbone_degree": 4,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 65,
+          "realized_degree": 3,
+          "realized_octave_offset": 0,
+          "realized_midi": 64,
+          "duration": 0.5,
+          "velocity": 80,
+          "microvaried": true
+        },
+        {
+          "position": 6,
+          "backbone_degree": 3,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 64,
+          "realized_degree": 3,
+          "realized_octave_offset": 0,
+          "realized_midi": 64,
+          "duration": 1.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 7,
+          "backbone_degree": 3,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 64,
+          "realized_degree": 3,
+          "realized_octave_offset": 0,
+          "realized_midi": 64,
+          "duration": 0.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 8,
+          "backbone_degree": 1,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 60,
+          "realized_degree": 1,
+          "realized_octave_offset": 0,
+          "realized_midi": 60,
+          "duration": 1.5,
+          "velocity": 80,
+          "microvaried": false
+        }
+      ]
+    },
+    {
+      "phrase_index": 3,
+      "role": "R2",
+      "role_occurrence": 2,
+      "cultural_label": "Sanfona",
+      "midi_instrument": "Accordion",
+      "midi_program": 21,
+      "track_name": "R2 - Sanfona",
+      "seed": 101,
+      "p_var": 0.2,
+      "microvariation_positions": [
+        3,
+        5
+      ],
+      "micro_decisions": [
+        {
+          "position": 2,
+          "gate": 0.8038560352882933,
+          "selector": 0.5967980606118182,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": 1,
+          "degree_before": 2,
+          "degree_after_if_applied": 3,
+          "applied": false
+        },
+        {
+          "position": 3,
+          "gate": 0.17935476729594557,
+          "selector": 0.3555252459076751,
+          "valid_deltas": [
+            1
+          ],
+          "proposed_delta": 1,
+          "degree_before": 1,
+          "degree_after_if_applied": 2,
+          "applied": true
+        },
+        {
+          "position": 4,
+          "gate": 0.4978825864503378,
+          "selector": 0.651041968508011,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": 1,
+          "degree_before": 3,
+          "degree_after_if_applied": 4,
+          "applied": false
+        },
+        {
+          "position": 5,
+          "gate": 0.15442816822454042,
+          "selector": 0.5080057092723652,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": 1,
+          "degree_before": 4,
+          "degree_after_if_applied": 5,
+          "applied": true
+        },
+        {
+          "position": 6,
+          "gate": 0.7526653971880762,
+          "selector": 0.17285148451575527,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": -1,
+          "degree_before": 3,
+          "degree_after_if_applied": 2,
+          "applied": false
+        }
+      ],
+      "microvariations": [
+        {
+          "position": 3,
+          "gate": 0.17935476729594557,
+          "selector": 0.3555252459076751,
+          "degree_before": 1,
+          "degree_after": 2,
+          "octave_offset": 0,
+          "midi_before": 60,
+          "midi_after": 62
+        },
+        {
+          "position": 5,
+          "gate": 0.15442816822454042,
+          "selector": 0.5080057092723652,
+          "degree_before": 4,
+          "degree_after": 5,
+          "octave_offset": 0,
+          "midi_before": 65,
+          "midi_after": 67
+        }
+      ],
+      "events": [
+        {
+          "position": 1,
+          "backbone_degree": 3,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 64,
+          "realized_degree": 3,
+          "realized_octave_offset": 0,
+          "realized_midi": 64,
+          "duration": 1.0,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 2,
+          "backbone_degree": 2,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 62,
+          "realized_degree": 2,
+          "realized_octave_offset": 0,
+          "realized_midi": 62,
+          "duration": 1.0,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 3,
+          "backbone_degree": 1,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 60,
+          "realized_degree": 2,
+          "realized_octave_offset": 0,
+          "realized_midi": 62,
+          "duration": 1.0,
+          "velocity": 80,
+          "microvaried": true
+        },
+        {
+          "position": 4,
+          "backbone_degree": 3,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 64,
+          "realized_degree": 3,
+          "realized_octave_offset": 0,
+          "realized_midi": 64,
+          "duration": 1.0,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 5,
+          "backbone_degree": 4,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 65,
+          "realized_degree": 5,
+          "realized_octave_offset": 0,
+          "realized_midi": 67,
+          "duration": 0.5,
+          "velocity": 80,
+          "microvaried": true
+        },
+        {
+          "position": 6,
+          "backbone_degree": 3,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 64,
+          "realized_degree": 3,
+          "realized_octave_offset": 0,
+          "realized_midi": 64,
+          "duration": 1.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 7,
+          "backbone_degree": 3,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 64,
+          "realized_degree": 3,
+          "realized_octave_offset": 0,
+          "realized_midi": 64,
+          "duration": 0.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 8,
+          "backbone_degree": 1,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 60,
+          "realized_degree": 1,
+          "realized_octave_offset": 0,
+          "realized_midi": 60,
+          "duration": 1.5,
+          "velocity": 80,
+          "microvaried": false
+        }
+      ]
+    },
+    {
+      "phrase_index": 4,
+      "role": "R1",
+      "role_occurrence": 2,
+      "cultural_label": "Violão",
+      "midi_instrument": "Acoustic Guitar (nylon)",
+      "midi_program": 24,
+      "track_name": "R1 - Violão",
+      "seed": 101,
+      "p_var": 0.2,
+      "microvariation_positions": [],
+      "micro_decisions": [
+        {
+          "position": 2,
+          "gate": 0.38582691844103634,
+          "selector": 0.7859290656961844,
+          "valid_deltas": [
+            1
+          ],
+          "proposed_delta": 1,
+          "degree_before": 1,
+          "degree_after_if_applied": 2,
+          "applied": false
+        },
+        {
+          "position": 3,
+          "gate": 0.5963501384461264,
+          "selector": 0.5868476754450849,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": 1,
+          "degree_before": 2,
+          "degree_after_if_applied": 3,
+          "applied": false
+        },
+        {
+          "position": 4,
+          "gate": 0.658207216485212,
+          "selector": 0.7374787629827868,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": 1,
+          "degree_before": 3,
+          "degree_after_if_applied": 4,
+          "applied": false
+        },
+        {
+          "position": 5,
+          "gate": 0.5160138591462462,
+          "selector": 0.18429910255681647,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": -1,
+          "degree_before": 4,
+          "degree_after_if_applied": 3,
+          "applied": false
+        },
+        {
+          "position": 6,
+          "gate": 0.7179996368622839,
+          "selector": 0.7122552802725544,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": 1,
+          "degree_before": 3,
+          "degree_after_if_applied": 4,
+          "applied": false
+        }
+      ],
+      "microvariations": [],
+      "events": [
+        {
+          "position": 1,
+          "backbone_degree": 3,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 64,
+          "realized_degree": 3,
+          "realized_octave_offset": 0,
+          "realized_midi": 64,
+          "duration": 1.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 2,
+          "backbone_degree": 1,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 60,
+          "realized_degree": 1,
+          "realized_octave_offset": 0,
+          "realized_midi": 60,
+          "duration": 0.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 3,
+          "backbone_degree": 2,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 62,
+          "realized_degree": 2,
+          "realized_octave_offset": 0,
+          "realized_midi": 62,
+          "duration": 1.0,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 4,
+          "backbone_degree": 3,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 64,
+          "realized_degree": 3,
+          "realized_octave_offset": 0,
+          "realized_midi": 64,
+          "duration": 1.0,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 5,
+          "backbone_degree": 4,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 65,
+          "realized_degree": 4,
+          "realized_octave_offset": 0,
+          "realized_midi": 65,
+          "duration": 0.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 6,
+          "backbone_degree": 3,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 64,
+          "realized_degree": 3,
+          "realized_octave_offset": 0,
+          "realized_midi": 64,
+          "duration": 1.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 7,
+          "backbone_degree": 3,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 64,
+          "realized_degree": 3,
+          "realized_octave_offset": 0,
+          "realized_midi": 64,
+          "duration": 1.0,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 8,
+          "backbone_degree": 1,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 60,
+          "realized_degree": 1,
+          "realized_octave_offset": 0,
+          "realized_midi": 60,
+          "duration": 1.0,
+          "velocity": 80,
+          "microvaried": false
+        }
+      ]
+    },
+    {
+      "phrase_index": 5,
+      "role": "R1",
+      "role_occurrence": 3,
+      "cultural_label": "Violão",
+      "midi_instrument": "Acoustic Guitar (nylon)",
+      "midi_program": 24,
+      "track_name": "R1 - Violão",
+      "seed": 101,
+      "p_var": 0.2,
+      "microvariation_positions": [
+        2,
+        6
+      ],
+      "micro_decisions": [
+        {
+          "position": 2,
+          "gate": 0.14497654513541902,
+          "selector": 0.5251804564392066,
+          "valid_deltas": [
+            1
+          ],
+          "proposed_delta": 1,
+          "degree_before": 1,
+          "degree_after_if_applied": 2,
+          "applied": true
+        },
+        {
+          "position": 3,
+          "gate": 0.24305957131991762,
+          "selector": 0.2488991471792369,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": -1,
+          "degree_before": 2,
+          "degree_after_if_applied": 1,
+          "applied": false
+        },
+        {
+          "position": 4,
+          "gate": 0.9348599613009341,
+          "selector": 0.915691342593632,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": 1,
+          "degree_before": 3,
+          "degree_after_if_applied": 4,
+          "applied": false
+        },
+        {
+          "position": 5,
+          "gate": 0.5019212984639803,
+          "selector": 0.33656008661716474,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": -1,
+          "degree_before": 4,
+          "degree_after_if_applied": 3,
+          "applied": false
+        },
+        {
+          "position": 6,
+          "gate": 0.13991384433287835,
+          "selector": 0.5736632868103423,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": 1,
+          "degree_before": 3,
+          "degree_after_if_applied": 4,
+          "applied": true
+        }
+      ],
+      "microvariations": [
+        {
+          "position": 2,
+          "gate": 0.14497654513541902,
+          "selector": 0.5251804564392066,
+          "degree_before": 1,
+          "degree_after": 2,
+          "octave_offset": 0,
+          "midi_before": 60,
+          "midi_after": 62
+        },
+        {
+          "position": 6,
+          "gate": 0.13991384433287835,
+          "selector": 0.5736632868103423,
+          "degree_before": 3,
+          "degree_after": 4,
+          "octave_offset": 0,
+          "midi_before": 64,
+          "midi_after": 65
+        }
+      ],
+      "events": [
+        {
+          "position": 1,
+          "backbone_degree": 3,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 64,
+          "realized_degree": 3,
+          "realized_octave_offset": 0,
+          "realized_midi": 64,
+          "duration": 1.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 2,
+          "backbone_degree": 1,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 60,
+          "realized_degree": 2,
+          "realized_octave_offset": 0,
+          "realized_midi": 62,
+          "duration": 0.5,
+          "velocity": 80,
+          "microvaried": true
+        },
+        {
+          "position": 3,
+          "backbone_degree": 2,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 62,
+          "realized_degree": 2,
+          "realized_octave_offset": 0,
+          "realized_midi": 62,
+          "duration": 1.0,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 4,
+          "backbone_degree": 3,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 64,
+          "realized_degree": 3,
+          "realized_octave_offset": 0,
+          "realized_midi": 64,
+          "duration": 1.0,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 5,
+          "backbone_degree": 4,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 65,
+          "realized_degree": 4,
+          "realized_octave_offset": 0,
+          "realized_midi": 65,
+          "duration": 0.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 6,
+          "backbone_degree": 3,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 64,
+          "realized_degree": 4,
+          "realized_octave_offset": 0,
+          "realized_midi": 65,
+          "duration": 1.5,
+          "velocity": 80,
+          "microvaried": true
+        },
+        {
+          "position": 7,
+          "backbone_degree": 3,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 64,
+          "realized_degree": 3,
+          "realized_octave_offset": 0,
+          "realized_midi": 64,
+          "duration": 1.0,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 8,
+          "backbone_degree": 1,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 60,
+          "realized_degree": 1,
+          "realized_octave_offset": 0,
+          "realized_midi": 60,
+          "duration": 1.0,
+          "velocity": 80,
+          "microvaried": false
+        }
+      ]
+    },
+    {
+      "phrase_index": 6,
+      "role": "R3",
+      "role_occurrence": 1,
+      "cultural_label": "Rabeca",
+      "midi_instrument": "Fiddle",
+      "midi_program": 110,
+      "track_name": "R3 - Rabeca",
+      "seed": 101,
+      "p_var": 0.2,
+      "microvariation_positions": [
+        2,
+        4
+      ],
+      "micro_decisions": [
+        {
+          "position": 2,
+          "gate": 0.17243287077865266,
+          "selector": 0.976524754039311,
+          "valid_deltas": [
+            1
+          ],
+          "proposed_delta": 1,
+          "degree_before": 1,
+          "degree_after_if_applied": 2,
+          "applied": true
+        },
+        {
+          "position": 3,
+          "gate": 0.6356396123838948,
+          "selector": 0.9823357842254163,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": 1,
+          "degree_before": 2,
+          "degree_after_if_applied": 3,
+          "applied": false
+        },
+        {
+          "position": 4,
+          "gate": 0.15373853091512768,
+          "selector": 0.09723179992407971,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": -1,
+          "degree_before": 3,
+          "degree_after_if_applied": 2,
+          "applied": true
+        },
+        {
+          "position": 5,
+          "gate": 0.525612824231753,
+          "selector": 0.07282462970058956,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": -1,
+          "degree_before": 4,
+          "degree_after_if_applied": 3,
+          "applied": false
+        },
+        {
+          "position": 6,
+          "gate": 0.700883890156524,
+          "selector": 0.22335413690523487,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": -1,
+          "degree_before": 5,
+          "degree_after_if_applied": 4,
+          "applied": false
+        }
+      ],
+      "microvariations": [
+        {
+          "position": 2,
+          "gate": 0.17243287077865266,
+          "selector": 0.976524754039311,
+          "degree_before": 1,
+          "degree_after": 2,
+          "octave_offset": 0,
+          "midi_before": 60,
+          "midi_after": 62
+        },
+        {
+          "position": 4,
+          "gate": 0.15373853091512768,
+          "selector": 0.09723179992407971,
+          "degree_before": 3,
+          "degree_after": 2,
+          "octave_offset": 0,
+          "midi_before": 64,
+          "midi_after": 62
+        }
+      ],
+      "events": [
+        {
+          "position": 1,
+          "backbone_degree": 4,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 65,
+          "realized_degree": 4,
+          "realized_octave_offset": 0,
+          "realized_midi": 65,
+          "duration": 1.0,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 2,
+          "backbone_degree": 1,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 60,
+          "realized_degree": 2,
+          "realized_octave_offset": 0,
+          "realized_midi": 62,
+          "duration": 1.0,
+          "velocity": 80,
+          "microvaried": true
+        },
+        {
+          "position": 3,
+          "backbone_degree": 2,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 62,
+          "realized_degree": 2,
+          "realized_octave_offset": 0,
+          "realized_midi": 62,
+          "duration": 1.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 4,
+          "backbone_degree": 3,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 64,
+          "realized_degree": 2,
+          "realized_octave_offset": 0,
+          "realized_midi": 62,
+          "duration": 0.5,
+          "velocity": 80,
+          "microvaried": true
+        },
+        {
+          "position": 5,
+          "backbone_degree": 4,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 65,
+          "realized_degree": 4,
+          "realized_octave_offset": 0,
+          "realized_midi": 65,
+          "duration": 0.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 6,
+          "backbone_degree": 5,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 67,
+          "realized_degree": 5,
+          "realized_octave_offset": 0,
+          "realized_midi": 67,
+          "duration": 1.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 7,
+          "backbone_degree": 2,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 62,
+          "realized_degree": 2,
+          "realized_octave_offset": 0,
+          "realized_midi": 62,
+          "duration": 1.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 8,
+          "backbone_degree": 1,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 60,
+          "realized_degree": 1,
+          "realized_octave_offset": 0,
+          "realized_midi": 60,
+          "duration": 0.5,
+          "velocity": 80,
+          "microvaried": false
+        }
+      ]
+    },
+    {
+      "phrase_index": 7,
+      "role": "R3",
+      "role_occurrence": 2,
+      "cultural_label": "Rabeca",
+      "midi_instrument": "Fiddle",
+      "midi_program": 110,
+      "track_name": "R3 - Rabeca",
+      "seed": 101,
+      "p_var": 0.2,
+      "microvariation_positions": [],
+      "micro_decisions": [
+        {
+          "position": 2,
+          "gate": 0.7389823428527892,
+          "selector": 0.3435503025531168,
+          "valid_deltas": [
+            1
+          ],
+          "proposed_delta": 1,
+          "degree_before": 1,
+          "degree_after_if_applied": 2,
+          "applied": false
+        },
+        {
+          "position": 3,
+          "gate": 0.33801846076280084,
+          "selector": 0.653405883010225,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": 1,
+          "degree_before": 2,
+          "degree_after_if_applied": 3,
+          "applied": false
+        },
+        {
+          "position": 4,
+          "gate": 0.49934112762290406,
+          "selector": 0.30544336744144573,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": -1,
+          "degree_before": 3,
+          "degree_after_if_applied": 2,
+          "applied": false
+        },
+        {
+          "position": 5,
+          "gate": 0.219525880967125,
+          "selector": 0.45778666101979704,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": -1,
+          "degree_before": 4,
+          "degree_after_if_applied": 3,
+          "applied": false
+        },
+        {
+          "position": 6,
+          "gate": 0.40814376680277487,
+          "selector": 0.45994817154877876,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": -1,
+          "degree_before": 5,
+          "degree_after_if_applied": 4,
+          "applied": false
+        }
+      ],
+      "microvariations": [],
+      "events": [
+        {
+          "position": 1,
+          "backbone_degree": 4,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 65,
+          "realized_degree": 4,
+          "realized_octave_offset": 0,
+          "realized_midi": 65,
+          "duration": 1.0,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 2,
+          "backbone_degree": 1,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 60,
+          "realized_degree": 1,
+          "realized_octave_offset": 0,
+          "realized_midi": 60,
+          "duration": 1.0,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 3,
+          "backbone_degree": 2,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 62,
+          "realized_degree": 2,
+          "realized_octave_offset": 0,
+          "realized_midi": 62,
+          "duration": 1.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 4,
+          "backbone_degree": 3,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 64,
+          "realized_degree": 3,
+          "realized_octave_offset": 0,
+          "realized_midi": 64,
+          "duration": 0.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 5,
+          "backbone_degree": 4,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 65,
+          "realized_degree": 4,
+          "realized_octave_offset": 0,
+          "realized_midi": 65,
+          "duration": 0.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 6,
+          "backbone_degree": 5,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 67,
+          "realized_degree": 5,
+          "realized_octave_offset": 0,
+          "realized_midi": 67,
+          "duration": 1.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 7,
+          "backbone_degree": 2,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 62,
+          "realized_degree": 2,
+          "realized_octave_offset": 0,
+          "realized_midi": 62,
+          "duration": 1.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 8,
+          "backbone_degree": 1,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 60,
+          "realized_degree": 1,
+          "realized_octave_offset": 0,
+          "realized_midi": 60,
+          "duration": 0.5,
+          "velocity": 80,
+          "microvaried": false
+        }
+      ]
+    },
+    {
+      "phrase_index": 8,
+      "role": "R4",
+      "role_occurrence": 1,
+      "cultural_label": "Viola nordestina / viola sertaneja",
+      "midi_instrument": "Acoustic Guitar (steel)",
+      "midi_program": 25,
+      "track_name": "R4 - Viola",
+      "seed": 101,
+      "p_var": 0.2,
+      "microvariation_positions": [
+        3,
+        5
+      ],
+      "micro_decisions": [
+        {
+          "position": 2,
+          "gate": 0.5094427102006149,
+          "selector": 0.7669892816647185,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": 1,
+          "degree_before": 5,
+          "degree_after_if_applied": 6,
+          "applied": false
+        },
+        {
+          "position": 3,
+          "gate": 0.12018957702194732,
+          "selector": 0.858554057562763,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": 1,
+          "degree_before": 2,
+          "degree_after_if_applied": 3,
+          "applied": true
+        },
+        {
+          "position": 4,
+          "gate": 0.27010532569725243,
+          "selector": 0.15018473462932447,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": -1,
+          "degree_before": 3,
+          "degree_after_if_applied": 2,
+          "applied": false
+        },
+        {
+          "position": 5,
+          "gate": 0.11950843754345597,
+          "selector": 0.08565586688737126,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": -1,
+          "degree_before": 4,
+          "degree_after_if_applied": 3,
+          "applied": true
+        },
+        {
+          "position": 6,
+          "gate": 0.8693206762154428,
+          "selector": 0.8397709022604342,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": 1,
+          "degree_before": 3,
+          "degree_after_if_applied": 4,
+          "applied": false
+        }
+      ],
+      "microvariations": [
+        {
+          "position": 3,
+          "gate": 0.12018957702194732,
+          "selector": 0.858554057562763,
+          "degree_before": 2,
+          "degree_after": 3,
+          "octave_offset": 0,
+          "midi_before": 62,
+          "midi_after": 64
+        },
+        {
+          "position": 5,
+          "gate": 0.11950843754345597,
+          "selector": 0.08565586688737126,
+          "degree_before": 4,
+          "degree_after": 3,
+          "octave_offset": 0,
+          "midi_before": 65,
+          "midi_after": 64
+        }
+      ],
+      "events": [
+        {
+          "position": 1,
+          "backbone_degree": 3,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 64,
+          "realized_degree": 3,
+          "realized_octave_offset": 0,
+          "realized_midi": 64,
+          "duration": 0.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 2,
+          "backbone_degree": 5,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 67,
+          "realized_degree": 5,
+          "realized_octave_offset": 0,
+          "realized_midi": 67,
+          "duration": 1.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 3,
+          "backbone_degree": 2,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 62,
+          "realized_degree": 3,
+          "realized_octave_offset": 0,
+          "realized_midi": 64,
+          "duration": 0.5,
+          "velocity": 80,
+          "microvaried": true
+        },
+        {
+          "position": 4,
+          "backbone_degree": 3,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 64,
+          "realized_degree": 3,
+          "realized_octave_offset": 0,
+          "realized_midi": 64,
+          "duration": 1.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 5,
+          "backbone_degree": 4,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 65,
+          "realized_degree": 3,
+          "realized_octave_offset": 0,
+          "realized_midi": 64,
+          "duration": 1.5,
+          "velocity": 80,
+          "microvaried": true
+        },
+        {
+          "position": 6,
+          "backbone_degree": 3,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 64,
+          "realized_degree": 3,
+          "realized_octave_offset": 0,
+          "realized_midi": 64,
+          "duration": 0.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 7,
+          "backbone_degree": 4,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 65,
+          "realized_degree": 4,
+          "realized_octave_offset": 0,
+          "realized_midi": 65,
+          "duration": 0.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 8,
+          "backbone_degree": 3,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 64,
+          "realized_degree": 3,
+          "realized_octave_offset": 0,
+          "realized_midi": 64,
+          "duration": 1.5,
+          "velocity": 80,
+          "microvaried": false
+        }
+      ]
+    },
+    {
+      "phrase_index": 9,
+      "role": "R4",
+      "role_occurrence": 2,
+      "cultural_label": "Viola nordestina / viola sertaneja",
+      "midi_instrument": "Acoustic Guitar (steel)",
+      "midi_program": 25,
+      "track_name": "R4 - Viola",
+      "seed": 101,
+      "p_var": 0.2,
+      "microvariation_positions": [
+        4
+      ],
+      "micro_decisions": [
+        {
+          "position": 2,
+          "gate": 0.8110813795801689,
+          "selector": 0.9085095275420312,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": 1,
+          "degree_before": 5,
+          "degree_after_if_applied": 6,
+          "applied": false
+        },
+        {
+          "position": 3,
+          "gate": 0.7710845240469882,
+          "selector": 0.03604590297317212,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": -1,
+          "degree_before": 2,
+          "degree_after_if_applied": 1,
+          "applied": false
+        },
+        {
+          "position": 4,
+          "gate": 0.0011755152928550894,
+          "selector": 0.09819856664212956,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": -1,
+          "degree_before": 3,
+          "degree_after_if_applied": 2,
+          "applied": true
+        },
+        {
+          "position": 5,
+          "gate": 0.8440401373654913,
+          "selector": 0.13933419351060972,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": -1,
+          "degree_before": 4,
+          "degree_after_if_applied": 3,
+          "applied": false
+        },
+        {
+          "position": 6,
+          "gate": 0.8109150049640638,
+          "selector": 0.44493301632670645,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": -1,
+          "degree_before": 3,
+          "degree_after_if_applied": 2,
+          "applied": false
+        }
+      ],
+      "microvariations": [
+        {
+          "position": 4,
+          "gate": 0.0011755152928550894,
+          "selector": 0.09819856664212956,
+          "degree_before": 3,
+          "degree_after": 2,
+          "octave_offset": 0,
+          "midi_before": 64,
+          "midi_after": 62
+        }
+      ],
+      "events": [
+        {
+          "position": 1,
+          "backbone_degree": 3,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 64,
+          "realized_degree": 3,
+          "realized_octave_offset": 0,
+          "realized_midi": 64,
+          "duration": 0.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 2,
+          "backbone_degree": 5,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 67,
+          "realized_degree": 5,
+          "realized_octave_offset": 0,
+          "realized_midi": 67,
+          "duration": 1.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 3,
+          "backbone_degree": 2,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 62,
+          "realized_degree": 2,
+          "realized_octave_offset": 0,
+          "realized_midi": 62,
+          "duration": 0.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 4,
+          "backbone_degree": 3,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 64,
+          "realized_degree": 2,
+          "realized_octave_offset": 0,
+          "realized_midi": 62,
+          "duration": 1.5,
+          "velocity": 80,
+          "microvaried": true
+        },
+        {
+          "position": 5,
+          "backbone_degree": 4,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 65,
+          "realized_degree": 4,
+          "realized_octave_offset": 0,
+          "realized_midi": 65,
+          "duration": 1.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 6,
+          "backbone_degree": 3,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 64,
+          "realized_degree": 3,
+          "realized_octave_offset": 0,
+          "realized_midi": 64,
+          "duration": 0.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 7,
+          "backbone_degree": 4,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 65,
+          "realized_degree": 4,
+          "realized_octave_offset": 0,
+          "realized_midi": 65,
+          "duration": 0.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 8,
+          "backbone_degree": 3,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 64,
+          "realized_degree": 3,
+          "realized_octave_offset": 0,
+          "realized_midi": 64,
+          "duration": 1.5,
+          "velocity": 80,
+          "microvaried": false
+        }
+      ]
+    },
+    {
+      "phrase_index": 10,
+      "role": "R3",
+      "role_occurrence": 3,
+      "cultural_label": "Rabeca",
+      "midi_instrument": "Fiddle",
+      "midi_program": 110,
+      "track_name": "R3 - Rabeca",
+      "seed": 101,
+      "p_var": 0.2,
+      "microvariation_positions": [
+        2
+      ],
+      "micro_decisions": [
+        {
+          "position": 2,
+          "gate": 0.03438387274806687,
+          "selector": 0.15590465873099046,
+          "valid_deltas": [
+            1
+          ],
+          "proposed_delta": 1,
+          "degree_before": 1,
+          "degree_after_if_applied": 2,
+          "applied": true
+        },
+        {
+          "position": 3,
+          "gate": 0.40058632190314236,
+          "selector": 0.7357909891757911,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": 1,
+          "degree_before": 2,
+          "degree_after_if_applied": 3,
+          "applied": false
+        },
+        {
+          "position": 4,
+          "gate": 0.3097663441787598,
+          "selector": 0.20276315648664978,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": -1,
+          "degree_before": 3,
+          "degree_after_if_applied": 2,
+          "applied": false
+        },
+        {
+          "position": 5,
+          "gate": 0.8326795630564384,
+          "selector": 0.21071514919088852,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": -1,
+          "degree_before": 4,
+          "degree_after_if_applied": 3,
+          "applied": false
+        },
+        {
+          "position": 6,
+          "gate": 0.8856665306272224,
+          "selector": 0.0690537977353054,
+          "valid_deltas": [
+            -1,
+            1
+          ],
+          "proposed_delta": -1,
+          "degree_before": 5,
+          "degree_after_if_applied": 4,
+          "applied": false
+        }
+      ],
+      "microvariations": [
+        {
+          "position": 2,
+          "gate": 0.03438387274806687,
+          "selector": 0.15590465873099046,
+          "degree_before": 1,
+          "degree_after": 2,
+          "octave_offset": 0,
+          "midi_before": 60,
+          "midi_after": 62
+        }
+      ],
+      "events": [
+        {
+          "position": 1,
+          "backbone_degree": 4,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 65,
+          "realized_degree": 4,
+          "realized_octave_offset": 0,
+          "realized_midi": 65,
+          "duration": 1.0,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 2,
+          "backbone_degree": 1,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 60,
+          "realized_degree": 2,
+          "realized_octave_offset": 0,
+          "realized_midi": 62,
+          "duration": 1.0,
+          "velocity": 80,
+          "microvaried": true
+        },
+        {
+          "position": 3,
+          "backbone_degree": 2,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 62,
+          "realized_degree": 2,
+          "realized_octave_offset": 0,
+          "realized_midi": 62,
+          "duration": 1.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 4,
+          "backbone_degree": 3,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 64,
+          "realized_degree": 3,
+          "realized_octave_offset": 0,
+          "realized_midi": 64,
+          "duration": 0.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 5,
+          "backbone_degree": 4,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 65,
+          "realized_degree": 4,
+          "realized_octave_offset": 0,
+          "realized_midi": 65,
+          "duration": 0.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 6,
+          "backbone_degree": 5,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 67,
+          "realized_degree": 5,
+          "realized_octave_offset": 0,
+          "realized_midi": 67,
+          "duration": 1.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 7,
+          "backbone_degree": 2,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 62,
+          "realized_degree": 2,
+          "realized_octave_offset": 0,
+          "realized_midi": 62,
+          "duration": 1.5,
+          "velocity": 80,
+          "microvaried": false
+        },
+        {
+          "position": 8,
+          "backbone_degree": 1,
+          "backbone_octave_offset": 0,
+          "backbone_midi": 60,
+          "realized_degree": 1,
+          "realized_octave_offset": 0,
+          "realized_midi": 60,
+          "duration": 0.5,
+          "velocity": 80,
+          "microvaried": false
+        }
+      ]
+    }
+  ]
+}
