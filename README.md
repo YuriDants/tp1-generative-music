@@ -40,6 +40,26 @@ Para a avaliação quantitativa apresentada no artigo final, foram geradas três
 
 Somente os resultados da **V2.5** são utilizados nas análises quantitativas reportadas no artigo.
 
+### Exemplos Suplementares da V2.5
+
+Além das três realizações utilizadas na análise do artigo, foram geradas **sete realizações suplementares** com a mesma implementação V2.5, com o objetivo de disponibilizar uma amostra maior de músicas para audição e inspeção do comportamento do gerador.
+
+| Realização | Seed | `p_var` | BPM |
+| ---------- | ---: | ------: | --: |
+| **M4** | `303` | `0.20` | `96` |
+| **M5** | `404` | `0.20` | `96` |
+| **M6** | `505` | `0.20` | `96` |
+| **M7** | `606` | `0.20` | `120` |
+| **M8** | `707` | `0.20` | `120` |
+| **M9** | `808` | `0.20` | `144` |
+| **M10** | `909` | `0.20` | `144` |
+
+Os respectivos arquivos MIDI, WAV e JSON estão disponíveis em [`supplementary_outputs_v25/`](supplementary_outputs_v25/).
+
+> **Observação:** M4–M10 são exemplos suplementares da implementação V2.5 e não integram o desenho experimental nem os resultados quantitativos apresentados no artigo. O manuscrito já estava finalizado no limite de três páginas do TP1 quando esses exemplos adicionais foram produzidos. M1, M2 e M3 permanecem como as únicas realizações utilizadas nas análises reportadas no artigo.
+
+As realizações suplementares foram produzidas diretamente pela implementação V2.5, sem seleção estética posterior. M4–M6 mantêm o BPM utilizado no experimento principal, enquanto M7–M8 e M9–M10 permitem também ouvir o mesmo sistema em velocidades maiores.
+
 ### Artefatos de Áudio e Saídas Simbólicas
 
 - **M1:** [MIDI](outputs_v25/m1.mid) | [WAV](outputs_v25/m1.wav) | [Metadata/JSON](outputs_v25/m1.json)
@@ -80,6 +100,17 @@ Somente os resultados da **V2.5** são utilizados nas análises quantitativas re
     ├── TP1_ISMIR_2026_Paper.pdf
     ├── TP1_ISMIR_2026_Paper.tex
     └── TP1_ISMIR2026.bib
+│
+├── generate_supplementary_v25.py       # Geração dos exemplos suplementares M4–M10
+│
+├── supplementary_outputs_v25/          # Exemplos suplementares da V2.5
+│   ├── m4.mid / m4.wav / m4.json
+│   ├── m5.mid / m5.wav / m5.json
+│   ├── m6.mid / m6.wav / m6.json
+│   ├── m7.mid / m7.wav / m7.json
+│   ├── m8.mid / m8.wav / m8.json
+│   ├── m9.mid / m9.wav / m9.json
+│   └── m10.mid / m10.wav / m10.json
 ```
 
 A pasta `development_history/` contém artefatos selecionados em MIDI, WAV e JSON de versões anteriores do sistema. Esses arquivos são disponibilizados para permitir a observação da evolução do projeto durante o desenvolvimento.
@@ -183,6 +214,13 @@ outputs_v25/experiment_validation.json
 ```
 
 contendo as verificações utilizadas na comparação controlada entre M1 e M3.
+
+### Gerar os exemplos suplementares
+
+Com `outputs_v25/` já existente e preservado:
+
+```bash
+python generate_supplementary_v25.py
 
 ---
 
